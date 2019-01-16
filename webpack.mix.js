@@ -12,7 +12,8 @@ let mix = require('laravel-mix');
  */
 
 mix
-	.sass('assets/styles/bundle/_all.sass', 'dist/styles/buurthaven.combined.css');
+	.sass('assets/styles/bundle/_all.sass', 'dist/styles/buurthaven.combined.css')
+	.sass('assets/styles/specific/not-home.sass', 'dist/styles/not/home.css');
 
 mix
 	.combine([
