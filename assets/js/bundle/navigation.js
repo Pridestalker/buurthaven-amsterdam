@@ -1,3 +1,3 @@
 document.querySelector('[data-menu-target]').addEventListener('click', function () {
-	alert('YOU CLICKED ME??!')
-})
+	document.querySelector('.menu-container').classList.add('active')
+});
