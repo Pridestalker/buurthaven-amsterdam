@@ -11,3 +11,6 @@ window.addEventListener("scroll", () => {
 		document.querySelector('.main').classList.remove('header_fixed')
 	}
 })
+document.querySelector('[data-menu-target]').addEventListener('click', function () {
+	alert('YOU CLICKED ME??!')
+})

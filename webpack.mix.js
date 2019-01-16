@@ -15,7 +15,10 @@ mix
 	.sass('assets/styles/bundle/_all.sass', 'dist/styles/buurthaven.combined.css');
 
 mix
-	.combine(['assets/js/bundle/sticky-header.js'], 'dist/scripts/buurthaven.combined.js');
+	.combine([
+		'assets/js/bundle/sticky-header.js',
+		'assets/js/bundle/navigation.js'
+	], 'dist/scripts/buurthaven.combined.js');
 
 
 mix
