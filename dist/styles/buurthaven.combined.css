@@ -11,7 +11,7 @@
 
 @media screen and (min-width: 415px) {
   .buurthaven__logo {
-    max-width: 900px;
+    max-width: 800px;
   }
 }
 
@@ -30,6 +30,23 @@
   background: var(--white);
   height: 40px;
   width: 40px;
+}
+
+.menu-container {
+  display: none;
+  background: var(--green);
+  opacity: 0;
+}
+
+.menu-container.active {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  z-index: 9999;
 }
 
 
