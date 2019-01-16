@@ -1,0 +1,36 @@
+.woocommerce-input-field-template {
+  height: 40px;
+  border: 1px solid rgba(51, 51, 51, 0.5);
+  padding-left: 15px;
+  border-radius: 5px !important;
+}
+
+.transit {
+  transition: all 0.3s;
+}
+
+@media screen and (min-width: 415px) {
+  .buurthaven__logo {
+    max-width: 900px;
+  }
+}
+
+.logo__link {
+  margin: auto;
+}
+
+.social__blocks {
+  position: fixed;
+  top: 25%;
+  right: 0;
+}
+
+.social__blocks a[class*=social__blocks__link-],
+.social__blocks a[class^=social__blocks__link-] {
+  background: var(--white);
+  height: 25px;
+  width: 25px;
+}
+
+
+/*# sourceMappingURL=buurthaven.combined.css.map*/

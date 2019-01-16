@@ -1,2 +1,4 @@
 node_modules
 .phploy
+mix.js.map
+mix-manifest.json

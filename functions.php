@@ -15,6 +15,8 @@ array_map(
 		load_template( $file, true );
 	},
 	[
+		'ini',
+		
 		'timber/init'
 	]
 );
