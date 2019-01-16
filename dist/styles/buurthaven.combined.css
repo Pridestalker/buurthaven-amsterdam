@@ -53,7 +53,7 @@ body.custom-background:not(.home) {
 }
 
 body.custom-background:not(.home) .main.header_fixed {
-  padding-top: 0;
+  padding-top: 117px;
 }
 
 .bg-yellow {
