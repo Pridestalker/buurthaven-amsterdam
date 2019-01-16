@@ -49,5 +49,11 @@
   z-index: 9999;
 }
 
+.menu__button-container {
+  position: fixed;
+  top: 10%;
+  right: 40px;
+}
+
 
 /*# sourceMappingURL=buurthaven.combined.css.map*/
