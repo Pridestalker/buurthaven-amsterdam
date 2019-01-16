@@ -84,5 +84,11 @@ footer[data-template] {
   right: 40px;
 }
 
+.menu-close__button {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+}
+
 
 /*# sourceMappingURL=buurthaven.combined.css.map*/
