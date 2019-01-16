@@ -37,7 +37,7 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
 }
 
 .main.header_fixed {
-  padding-top: calc(294px + 6%);
+  padding-top: 294px;
 }
 
 .social__blocks {
