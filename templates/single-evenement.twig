@@ -3,26 +3,28 @@
 {% block content %}
     <article class="bg-yellow">
         <h1 class="text-center m-0 special-big-title py-4 text-white">{{ post.title }}</h1>
-        <section class="row">
-            <div class="col-md-6">
-                <figure>
-                    <img src="{{ post.thumbnail.src }}" alt="{{ post.title }}" srcset="{{ post.thumbnail.src|retina(1) }} 1x,
+        <div class="container">
+            <section class="row">
+                <div class="col-md-6">
+                    <figure class="evenement__img-figure">
+                        <img src="{{ post.thumbnail.src }}" alt="{{ post.title }}" class="evenement__img" srcset="{{ post.thumbnail.src|retina(1) }} 1x,
     {{ post.thumbnail.src|retina(2) }} 2x,
     {{ post.thumbnail.src|retina(3) }} 3x,
     {{ post.thumbnail.src|retina(4) }} 4x">
-                </figure>
-            </div>
-            <div class="col-md-6">
-                <p class="summary">
-                    {{ post.content }}
-                </p>
-                <p class="datum text-white text-lowercase">
-                    ma, wo en za: 10-17 uur
-                </p>
-                <p class="website">
-                    {{ post.meta('website') }}
-                </p>
-            </div>
-        </section>
+                    </figure>
+                </div>
+                <div class="col-md-6">
+                    <p class="summary">
+                        {{ post.content }}
+                    </p>
+                    <p class="datum text-white text-lowercase">
+                        ma, wo en za: 10-17 uur
+                    </p>
+                    <p class="website">
+                        {{ post.meta('website') }}
+                    </p>
+                </div>
+            </section>
+        </div>
     </article>
 {% endblock %}
