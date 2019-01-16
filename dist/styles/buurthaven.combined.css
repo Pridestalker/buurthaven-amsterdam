@@ -108,10 +108,14 @@ body.custom-background:not(.home) .main.header_fixed {
   right: 40px;
 }
 
-.evenement__img {
+.evenement .evenement__img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
+}
+
+.evenement .datum {
+  font-size: 29px;
 }
 
 
