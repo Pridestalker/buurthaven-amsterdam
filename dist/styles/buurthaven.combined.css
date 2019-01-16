@@ -44,6 +44,10 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
   width: 140px;
 }
 
+footer[data-template] {
+  background: var(--green);
+}
+
 .main.header_fixed {
   padding-top: 294px;
 }
