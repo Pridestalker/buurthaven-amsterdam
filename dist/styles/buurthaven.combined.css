@@ -25,10 +25,15 @@ header[data-sticky=header].fixme {
   width: 100%;
   z-index: 999;
   background: var(--white);
+  height: 104px;
 }
 
-header[data-sticky=header].fixme ~ .logo__link {
+header[data-sticky=header].fixme .logo__link {
   margin: 0;
+}
+
+header[data-sticky=header].fixme .logo__link .buurthaven__logo {
+  width: 140px;
 }
 
 .main.header_fixed {
