@@ -52,6 +52,10 @@ body.custom-background:not(.home) {
   background-image: none !important;
 }
 
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
 .social__blocks {
   position: fixed;
   top: 45%;
