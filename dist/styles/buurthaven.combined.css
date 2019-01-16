@@ -9,14 +9,14 @@
   transition: all 0.3s;
 }
 
-.buurthaven__logo {
-  max-width: 140px;
-}
-
 @media screen and (min-width: 415px) {
-  .buurthaven__logo {
+  .home .buurthaven__logo {
     max-width: 800px;
   }
+}
+
+.buurthaven__logo {
+  max-width: 140px;
 }
 
 .buurthaven__logo-footer {
