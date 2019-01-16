@@ -21,15 +21,15 @@
 
 .social__blocks {
   position: fixed;
-  top: 25%;
-  right: 0;
+  top: 45%;
+  right: 20px;
 }
 
 .social__blocks a[class*=social__blocks__link-],
 .social__blocks a[class^=social__blocks__link-] {
   background: var(--white);
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
 }
 
 
