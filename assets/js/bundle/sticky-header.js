@@ -5,7 +5,9 @@ window.addEventListener("scroll", () => {
 
 	if( window.pageYOffset > sticky ) {
 		header.classList.add('fixme')
+		document.querySelector('.main').classList.add('.header_fixed')
 	} else {
 		header.classList.remove('fixme')
+		document.querySelector('.main').classList.remove('.header_fixed')
 	}
 })
