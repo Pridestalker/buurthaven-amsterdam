@@ -57,11 +57,11 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
   display: none;
   background: var(--green);
   opacity: 0;
+  position: absolute;
 }
 
 .menu-container.active {
   display: block;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
