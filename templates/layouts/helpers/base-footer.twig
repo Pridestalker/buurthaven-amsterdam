@@ -1,2 +1,8 @@
-<footer>
+<footer class="bg-green d-flex p-2 justify-content-center align-items-center">
+    <figure>
+        <img src="{{ logo.src }}" alt="{{ site.name }}" srcset="{{ logo.src|retina(1) }} 1x,
+    {{ logo.src|retina(2) }} 2x,
+    {{ logo.src|retina(3) }} 3x,
+    {{ logo.src|retina(4) }} 4x" class="buurthaven__logo-footer">
+    </figure>
 </footer>
