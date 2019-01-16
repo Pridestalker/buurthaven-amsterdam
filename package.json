@@ -5,7 +5,10 @@
   "private": true,
   "devDependencies": {
     "cross-env": "^5.2.0",
-    "laravel-mix": "^4.0.13"
+    "laravel-mix": "^4.0.13",
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.16.0",
+    "sass-loader": "7.*"
   },
   "scripts": {
     "dev": "npm run development",

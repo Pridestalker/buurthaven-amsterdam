@@ -1,11 +1,11 @@
 <div class="site-branding container py-3" data-template="helpers.base-header.twig">
     <section class="d-flex align-items-center">
-        <a href="{{ site.url }}">
-            <figure>
+        <a href="{{ site.url }}" class="logo__link">
+            <figure class="logo__container">
                 <img src="{{ logo.src }}" alt="{{ site.name }}" srcset="{{ logo.src|retina(1) }} 1x,
     {{ logo.src|retina(2) }} 2x,
     {{ logo.src|retina(3) }} 3x,
-    {{ logo.src|retina(4) }} 4x" class="buurthave__logo">
+    {{ logo.src|retina(4) }} 4x" class="buurthaven__logo">
             </figure>
         </a>
         <aside class="ml-auto d-inline-block d-lg-none fa-2x color-tertiary-dark-10">
