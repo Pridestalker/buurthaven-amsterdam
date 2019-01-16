@@ -19,6 +19,22 @@
   margin: auto;
 }
 
+header[data-sticky=header].fixme {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: var(--white);
+}
+
+header[data-sticky=header].fixme ~ .logo__link {
+  margin: 0;
+}
+
+.main.header_fixed {
+  padding-top: 294px;
+}
+
 .social__blocks {
   position: fixed;
   top: 45%;
@@ -51,7 +67,7 @@
 
 .menu__button-container {
   position: fixed;
-  top: 10%;
+  top: 20px;
   right: 40px;
 }
 

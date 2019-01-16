@@ -17,7 +17,7 @@
     <a class="skip-link screen-reader-text" data-template="base.twig" href="#content">
         {{ _e( 'Skip to content', 'badubed') }}
     </a>
-    <header {{ fn('header_class') }} data-template="base.twig" id="header_{{ function('get_queried_object_id') }}">
+    <header {{ fn('header_class') }} data-sticky="header" data-template="base.twig" id="header_{{ function('get_queried_object_id') }}">
         {% block header %}
             {% include 'templates/layouts/helpers/base-header.twig' %}
         {% endblock %}

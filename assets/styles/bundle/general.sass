@@ -5,4 +5,17 @@
 .logo__link
   margin: auto
 
+header[data-sticky="header"]
+  &.fixme
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 999
+    background: var(--white)
+    & ~ .logo__link
+      margin: 0
 
+
+
+.main.header_fixed
+  padding-top: 294px

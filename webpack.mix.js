@@ -14,6 +14,9 @@ let mix = require('laravel-mix');
 mix
 	.sass('assets/styles/bundle/_all.sass', 'dist/styles/buurthaven.combined.css');
 
+mix
+	.combine(['assets/js/bundle/sticky-header.js'], 'dist/scripts/buurthaven.combined.js');
+
 
 mix
 	.webpackConfig(
@@ -21,3 +24,4 @@ mix
 			devtool: "source-map"
 		})
 	.sourceMaps();
+
