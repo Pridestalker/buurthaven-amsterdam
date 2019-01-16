@@ -23,9 +23,6 @@ function buurthaven_amsterdams_enqueues() {
 	wp_enqueue_script( 'jquery-ui-datepicker' );
 	wp_enqueue_script( 'buurthaven.amsterdam-scripts-general', get_stylesheet_directory_uri() . '/dist/scripts/buurthaven.combined.js', [], 1547626846, true);
 	
-	if( false === is_home() ) {
-		wp_enqueue_style('buurthaven.not-home-style', get_stylesheet_directory_uri() . '/dist/styles/not/home.css', [], 1547626846, 'all');
-	}
 }
 add_action( 'wp_enqueue_scripts', 'buurthaven_amsterdams_enqueues' );
 

@@ -48,6 +48,10 @@ footer[data-template] {
   padding-top: 294px;
 }
 
+body.custom-background:not(.home) {
+  background-image: none !important;
+}
+
 .social__blocks {
   position: fixed;
   top: 45%;
