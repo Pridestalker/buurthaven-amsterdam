@@ -73,7 +73,7 @@ body.custom-background:not(.home) {
 }
 
 .menu-container.active {
-  display: block;
+  display: flex;
   top: 0;
   left: 0;
   width: 100vw;
