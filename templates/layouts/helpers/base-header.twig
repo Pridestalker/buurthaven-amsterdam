@@ -1,7 +1,10 @@
 <div class="site-branding container py-3" data-template="helpers.base-header.twig">
     <section class="d-flex align-items-center">
         <figure>
-            {{ fn('the_custom_logo') }}
+            <img src="{{ logo.src }}" alt="{{ site.name }}" srcset="{{ logo.src|retina(1) }} 1x,
+    {{ logo.src|retina(2) }} 2x,
+    {{ logo.src|retina(3) }} 3x,
+    {{ logo.src|retina(4) }} 4x">
         </figure>
         <aside class="ml-auto d-inline-block d-lg-none fa-2x color-tertiary-dark-10">
             <button class="btn btn-lg bg-transparent" data-mobile-menu-target="#mobile-menu">
