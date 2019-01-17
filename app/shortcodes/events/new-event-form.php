@@ -25,7 +25,7 @@ add_action( 'admin_post_nopriv_new_event', 'boot_new_event_callback');
 
 function boot_new_event_callback() {
 	if( isset( $_POST ) ) {
-		wp_send_json( ['working'] );
+		wp_send_json( ['working', $_POST] );
 		
 	}
 }
