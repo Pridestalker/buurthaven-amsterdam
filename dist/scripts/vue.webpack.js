@@ -234,7 +234,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new-event-component",
@@ -817,7 +816,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("date-picker", {
-            attrs: { lang: "en", id: "startDate" },
+            attrs: { lang: "en", id: "startDate", "minute-step": "15" },
             model: {
               value: _vm.startDate,
               callback: function($$v) {
@@ -839,13 +838,13 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("date-picker", {
-            attrs: { lang: "en", id: "endDate" },
+            attrs: { lang: "en", id: "endDate", "minute-step": "15" },
             model: {
-              value: _vm.startDate,
+              value: _vm.endDate,
               callback: function($$v) {
-                _vm.startDate = $$v
+                _vm.endDate = $$v
               },
-              expression: "startDate"
+              expression: "endDate"
             }
           })
         ],
