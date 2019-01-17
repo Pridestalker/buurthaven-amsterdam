@@ -10,8 +10,8 @@
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
-                <input type="checkbox" name="repeat" id="repeat" class="custom-control-input">
-                <label v-model="repeat" for="repeat" class="custom-control-label">Herhaalt dit evenement zich?</label>
+                <input v-model="repeat" type="checkbox" name="repeat" id="repeat" class="custom-control-input">
+                <label for="repeat" class="custom-control-label">Herhaalt dit evenement zich?</label>
             </div>
         </div>
         <div class="form-group">
