@@ -5,6 +5,7 @@
  * Date: 2019-01-14
  * Time: 15:30
  */
+require_once 'vendor/autoload.php';
 
 /**
  * Require the helper files.
