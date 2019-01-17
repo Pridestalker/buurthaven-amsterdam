@@ -14,6 +14,7 @@ add_shortcode( 'frontpage-events', function ( $atts ) {
 	));
 	$context['posts'] = [];
 	
+	$events = array_unique($events);
 	if( $events ) {
 		foreach( $events as $event) {
 			$context['posts'] [] = new \Timber\Post($event->ID);
