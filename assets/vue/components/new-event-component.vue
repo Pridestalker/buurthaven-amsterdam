@@ -27,7 +27,7 @@
         </div>
         <div v-if="repeat" class="form-group">
             <label for="days">Wanneer is dit evenement?</label>
-            <select name="days" id="days" multiple v-model="days" class="form-control">
+            <select name="days" id="days" multiple v-model="days[]" class="form-control">
                 <option value="MO">Maandag</option>
                 <option value="TU">Dinsdag</option>
                 <option value="WE">Woensdag</option>
@@ -37,6 +37,7 @@
                 <option value="SU">Zondag</option>
             </select>
         </div>
+        <button type="submit">Aanmaken</button>
     </form>
 </template>
 
@@ -56,9 +57,9 @@
         },
         methods: {
 			submitForm: function () {
-				console.log(repeat)
-				console.log(days)
-				console.log(startDate)
+				console.log(repeat);
+				console.log(days);
+				console.log(startDate);
 				console.log(endDate)
             }
         }
