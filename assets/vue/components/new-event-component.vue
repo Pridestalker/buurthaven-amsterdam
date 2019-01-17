@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent>
+    <form @submit.prevent="submitForm">
         <div class="form-group">
             <label for="title">Evenement naam</label>
             <input type="text" id="title" placeholder="Evenement naam" class="form-control">
@@ -15,13 +15,15 @@
             </div>
         </div>
         <div class="form-group">
-            <!--<label for="startDate">Begindatum (en tijd)</label>-->
+            <label for="startDate">Begindatum (en tijd)</label>
             <!--<input type="text" id="startDate" class="form-control">-->
-            <date-picker v-model="startDate" lang="en"></date-picker>
+            <date-picker v-model="startDate" lang="en" id="startDate"></date-picker>
         </div>
         <div class="form-group">
             <label for="endDate">Einddatum en tijd</label>
-            <input type="text" id="endDate" class="form-control">
+            <!--<input type="text" id="endDate" class="form-control">-->
+            <date-picker v-model="startDate" lang="en" id="endDate"></date-picker>
+
         </div>
         <div v-if="repeat" class="form-group">
             <label for="days">Wanneer is dit evenement?</label>
@@ -48,7 +50,16 @@
 			return {
 				repeat: false,
                 days: [],
-                startDate: null
+                startDate: null,
+                endDate: null
+            }
+        },
+        methods: {
+			submitForm: function () {
+				console.log(repeat)
+				console.log(days)
+				console.log(startDate)
+				console.log(endDate)
             }
         }
 	};

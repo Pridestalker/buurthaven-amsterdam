@@ -232,6 +232,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new-event-component",
@@ -242,8 +244,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       repeat: false,
       days: [],
-      startDate: null
+      startDate: null,
+      endDate: null
     };
+  },
+  methods: {
+    submitForm: function submitForm() {
+      console.log(repeat);
+      console.log(days);
+      console.log(startDate);
+      console.log(endDate);
+    }
   }
 });
 
@@ -738,6 +749,7 @@ var render = function() {
       on: {
         submit: function($event) {
           $event.preventDefault()
+          return _vm.submitForm($event)
         }
       }
     },
@@ -799,8 +811,12 @@ var render = function() {
         "div",
         { staticClass: "form-group" },
         [
+          _c("label", { attrs: { for: "startDate" } }, [
+            _vm._v("Begindatum (en tijd)")
+          ]),
+          _vm._v(" "),
           _c("date-picker", {
-            attrs: { lang: "en" },
+            attrs: { lang: "en", id: "startDate" },
             model: {
               value: _vm.startDate,
               callback: function($$v) {
@@ -813,7 +829,27 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm._m(2),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "endDate" } }, [
+            _vm._v("Einddatum en tijd")
+          ]),
+          _vm._v(" "),
+          _c("date-picker", {
+            attrs: { lang: "en", id: "endDate" },
+            model: {
+              value: _vm.startDate,
+              callback: function($$v) {
+                _vm.startDate = $$v
+              },
+              expression: "startDate"
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _vm.repeat
         ? _c("div", { staticClass: "form-group" }, [
@@ -895,19 +931,6 @@ var staticRenderFns = [
       _c("textarea", {
         staticClass: "form-control",
         attrs: { id: "description", placeholder: "Omschrijving", rows: "3" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "endDate" } }, [_vm._v("Einddatum en tijd")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: "text", id: "endDate" }
       })
     ])
   }
