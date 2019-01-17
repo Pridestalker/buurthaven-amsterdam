@@ -15,7 +15,7 @@ $templates          = [
 
 $context            = \Timber\Timber::get_context();
 $context['post']    = new \Timber\Post();
-$context['owner']   = new \Timber\User($context['organisator']);
+$context['owner']   = new \Timber\User($context['post']->organisator);
 
 
 \Timber\Timber::render( $templates, $context );

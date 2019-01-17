@@ -18,6 +18,8 @@ array_map(
 	[
 		'ini',
 		
-		'timber/init'
+		'timber/init',
+		
+		'shortcodes/users/general'
 	]
 );
