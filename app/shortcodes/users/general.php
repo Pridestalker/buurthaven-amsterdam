@@ -23,7 +23,7 @@ function event_edit_link($atts) {
 		return;
 	}
 	
-	if( $owner === pc_user_logged('username')) {
+	if( $owner === pc_user_logged('id')) {
 		return \Timber\Timber::compile( 'templates/shortcodes/event/user-edit-link.twig', [ 'owner' => $owner ]);
 	}
 }
