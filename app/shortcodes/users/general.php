@@ -24,6 +24,6 @@ function event_edit_link($atts) {
 	}
 	
 	if( $owner === pc_user_logged('username')) {
-		return \Timber\Timber::compile( 'templates/shortcodes/event/user-edit-link.twig', [ 'owner' => $owner ]);
+		return \Timber\Timber::compile( 'templates/shortcodes/event/user-edit-link.twig', [ 'owner' => new \Timber\User(get_field('organisator', $post)['ID']) ]);
 	}
 }
