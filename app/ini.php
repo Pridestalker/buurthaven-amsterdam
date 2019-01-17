@@ -82,4 +82,4 @@ function custom_post_type_events() {
 	register_post_type( 'evenement', $args );
 	
 }
-add_action( 'init', 'custom_post_type_events', 0 );
+//add_action( 'init', 'custom_post_type_events', 0 );
