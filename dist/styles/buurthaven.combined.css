@@ -119,5 +119,11 @@ body.custom-background:not(.home) .main.header_fixed {
   font-size: 29px;
 }
 
+.frontpage__agenda-block {
+  height: 400px;
+  background-size: cover;
+  background-position: center center;
+}
+
 
 /*# sourceMappingURL=buurthaven.combined.css.map*/
