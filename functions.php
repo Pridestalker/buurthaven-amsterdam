@@ -20,6 +20,7 @@ array_map(
 		
 		'timber/init',
 		
-		'shortcodes/users/general'
+		'shortcodes/users/general',
+		'shortcodes/events/new-event-form'
 	]
 );
