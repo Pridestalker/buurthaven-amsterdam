@@ -1,0 +1,58 @@
+<template>
+    <form @submit.prevent>
+        <div class="form-group">
+            <label for="title">Evenement naam</label>
+            <input type="text" id="title" placeholder="Evenement naam" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Omschrijving</label>
+            <textarea id="description" placeholder="Omschrijving" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="repeat" id="repeat" class="custom-control-input">
+                <label v-model="repeat" for="repeat" class="custom-control-label">Herhaalt dit evenement zich?</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <!--<label for="startDate">Begindatum (en tijd)</label>-->
+            <!--<input type="text" id="startDate" class="form-control">-->
+            <date-picker v-model="startDate"></date-picker>
+        </div>
+        <div class="form-group">
+            <label for="endDate">Einddatum en tijd</label>
+            <input type="text" id="endDate" class="form-control">
+        </div>
+        <div v-if="repeat" class="form-group">
+            <select name="days" id="days" multiple v-model="days">
+                <option value="MO">Maandag</option>
+                <option value="TU">Dinsdag</option>
+                <option value="WE">Woensdag</option>
+                <option value="TH">Donderdag</option>
+                <option value="FR">Vrijdag</option>
+                <option value="SA">Zaterdag</option>
+                <option value="SU">Zondag</option>
+            </select>
+        </div>
+    </form>
+</template>
+
+<script>
+    import DatePicker from 'vue2-datepicker'
+    
+	export default {
+		name: "new-event-component",
+        components: {DatePicker},
+        data() {
+			return {
+				repeat: false,
+                days: [],
+                startDate: null
+            }
+        }
+	};
+</script>
+
+<style scoped>
+
+</style>

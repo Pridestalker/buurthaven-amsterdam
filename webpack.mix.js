@@ -20,6 +20,8 @@ mix
 		'assets/js/bundle/navigation.js'
 	], 'dist/scripts/buurthaven.combined.js');
 
+mix
+	.js('assets/vue/app.js', 'dist/scripts/vue.webpack.js');
 
 mix
 	.webpackConfig(
