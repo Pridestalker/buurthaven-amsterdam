@@ -2,10 +2,10 @@
     {% for post in posts %}
         <a href="{{ post.link }}" class="col-md-4 p-0">
             <article style="background-image: url({{ post.thumbnail.src('medium_large') }});" class="frontpage__agenda-block d-flex flex-column justify-content-end p-2">
-                <h5 class="frontpage__agenda-date m-0 text-dark">
+                <h5 class="frontpage__agenda-date m-0 text-white">
                     {{ post._eventorganiser_schedule_start_start|date('D j F') }}
                 </h5>
-                <h3 class="frontpage__agenda-title text-dark m-0">
+                <h3 class="frontpage__agenda-title text-white m-0">
                     {{ post.title }}
                 </h3>
             </article>
