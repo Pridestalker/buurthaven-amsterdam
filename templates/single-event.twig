@@ -15,7 +15,8 @@
                 </div>
                 <div class="col-md-6">
                     <p class="summary">
-                        {{ post.post_content }}
+                        {{ post.post_content|shortcodes }}
+                        {{ dump(fn('pc_user_logged')) }}
                     </p>
                     <p class="datum text-white text-lowercase">
                         {% for day in post._eventorganiser_event_schedule.schedule_meta %}
