@@ -9,7 +9,7 @@
 add_shortcode( 'current_user_id', 'whoami_id' );
 
 function whoami_id( $atts ) {
-	var_dump( $GLOBALS['pc_user_id'] );
+	var_dump( $GLOBALS );
 	if ( is_user_logged_in() ) {
 		return get_current_user_id();
 	}
