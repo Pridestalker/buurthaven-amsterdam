@@ -68,6 +68,7 @@
 
 <script>
     import DatePicker from 'vue2-datepicker'
+    import axios from 'axios'
     
 	export default {
 		name: "new-event-component",
@@ -81,13 +82,36 @@
                 image: null,
             }
         },
+        props: {
+			url: {
+				default: '//buurthaven.amsterdam/wp-admin/admin-post.php',
+            },
+            action: {
+				default: 'new_event',
+            }
+        },
         methods: {
 			submitForm: function () {
 				console.log(this.repeat);
 				console.log(this.repeat_days);
 				console.log(this.startDate);
-				console.log(this.endDate)
-				console.log(this.image)
+				console.log(this.endDate);
+				console.log(this.image);
+                
+                let sendme = {
+					'repeat': this.repeat,
+                    'days': this.repeat_days,
+                    'start': this.startDate,
+                    'end': this.endDate,
+                    'img': this.image
+                };
+                
+                console.log(sendme)
+                
+                axios.post(`${this.url}?action=${this.action}`, sendme)
+                    .then(res => console.log(res))
+                    .catch(err => console.log(err))
+                
             },
 			onFileChange(e) {
 				var files = e.target.files || e.dataTransfer.files;
