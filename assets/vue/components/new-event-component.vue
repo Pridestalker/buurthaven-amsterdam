@@ -1,5 +1,12 @@
 <template>
     <form method="POST" :action="url" @submit="submitForm" enctype="multipart/form-data">
+        <div class="alert alert-success" role="alert" v-if="success">
+            Jouw evenement is aan ons doorgegeven.
+        </div>
+        <div class="alert alert-danger" role="alert" v-if="failure">
+            Er is iets fout gegaan met het aanmaken.
+            Waren alle velden ingevuld?
+        </div>
         <div class="form-group">
             <label for="title">Evenement naam</label>
             <input type="text" name="title" id="title" placeholder="Evenement naam" class="form-control">
@@ -10,13 +17,11 @@
         </div>
         <div class="form-group">
             <label for="startDate">Begindatum (en tijd)</label>
-            <!--<input type="text" id="startDate" class="form-control">-->
-            <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm format="YYYY-MM-DD hh:mm:ss"></date-picker>
+            <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
         </div>
         <div class="form-group">
-            <label for="endDate">Einddatum en tijd</label>
-            <!--<input type="text" id="endDate" class="form-control">-->
-            <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm format="YYYY-MM-DD hh:mm:ss"></date-picker>
+            <label for="endDate">Einddatum (en tijd)</label>
+            <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
@@ -64,7 +69,9 @@
         </div>
         <input type="hidden" id="action" name="action" v-model="action">
         <input type="hidden" id="user" name="user" v-model="user">
-        <button type="submit">Aanmaken</button>
+        <input type="hidden" id="startDate" name="startDate" v-model="startDate">
+        <input type="hidden" id="endDate" name="endDate" v-model="endDate">
+        <button type="submit" class="btn bg-yellow">Aanmaken</button>
     </form>
 </template>
 
@@ -82,7 +89,9 @@
 				startDate: null,
 				endDate: null,
                 image: null,
-                sendme: {}
+                sendme: {},
+                success: false,
+                failure: false,
             }
         },
         props: {
@@ -121,7 +130,17 @@
 				console.log(files);
 				this.image = files[0];
 			}
-        }
+        },
+        mounted() {
+			let urlparams = new URLSearchParams(window.location.search);
+			if( urlparams.get('success') === '1') {
+				this.success = true;
+            }
+			
+			if( urlparams.get('fail') === '1') {
+				this.failure = true;
+            }
+		}
 	};
 </script>
 

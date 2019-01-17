@@ -1932,6 +1932,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1946,7 +1953,9 @@ __webpack_require__.r(__webpack_exports__);
       startDate: null,
       endDate: null,
       image: null,
-      sendme: {}
+      sendme: {},
+      success: false,
+      failure: false
     };
   },
   props: {
@@ -1985,6 +1994,17 @@ __webpack_require__.r(__webpack_exports__);
       if (!files.length) return;
       console.log(files);
       this.image = files[0];
+    }
+  },
+  mounted: function mounted() {
+    var urlparams = new URLSearchParams(window.location.search);
+
+    if (urlparams.get('success') === '1') {
+      this.success = true;
+    }
+
+    if (urlparams.get('fail') === '1') {
+      this.failure = true;
     }
   }
 });
@@ -2517,6 +2537,26 @@ var render = function() {
       on: { submit: _vm.submitForm }
     },
     [
+      _vm.success
+        ? _c(
+            "div",
+            { staticClass: "alert alert-success", attrs: { role: "alert" } },
+            [_vm._v("\n        Jouw evenement is aan ons doorgegeven.\n    ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.failure
+        ? _c(
+            "div",
+            { staticClass: "alert alert-danger", attrs: { role: "alert" } },
+            [
+              _vm._v(
+                "\n        Er is iets fout gegaan met het aanmaken.\n        Waren alle velden ingevuld?\n    "
+              )
+            ]
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _vm._m(1),
@@ -2536,6 +2576,7 @@ var render = function() {
               lang: "en",
               "minute-step": 15,
               confirm: "",
+              "value-type": "timestamp",
               format: "YYYY-MM-DD hh:mm:ss"
             },
             model: {
@@ -2555,7 +2596,7 @@ var render = function() {
         { staticClass: "form-group" },
         [
           _c("label", { attrs: { for: "endDate" } }, [
-            _vm._v("Einddatum en tijd")
+            _vm._v("Einddatum (en tijd)")
           ]),
           _vm._v(" "),
           _c("date-picker", {
@@ -2565,6 +2606,7 @@ var render = function() {
               lang: "en",
               "minute-step": 15,
               confirm: "",
+              "value-type": "timestamp",
               format: "YYYY-MM-DD hh:mm:ss"
             },
             model: {
@@ -3086,7 +3128,53 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c("button", { attrs: { type: "submit" } }, [_vm._v("Aanmaken")])
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.startDate,
+            expression: "startDate"
+          }
+        ],
+        attrs: { type: "hidden", id: "startDate", name: "startDate" },
+        domProps: { value: _vm.startDate },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.startDate = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.endDate,
+            expression: "endDate"
+          }
+        ],
+        attrs: { type: "hidden", id: "endDate", name: "endDate" },
+        domProps: { value: _vm.endDate },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.endDate = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn bg-yellow", attrs: { type: "submit" } },
+        [_vm._v("Aanmaken")]
+      )
     ]
   )
 }

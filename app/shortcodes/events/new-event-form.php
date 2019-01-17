@@ -5,6 +5,7 @@
  * Date: 2019-01-17
  * Time: 10:19
  */
+use Carbon\Carbon;
 
 add_shortcode( 'new_event_form', 'sh_new_event');
 
@@ -26,28 +27,31 @@ add_action( 'admin_post_nopriv_new_event', 'boot_new_event_callback');
 function boot_new_event_callback() {
 	
 	if(!isset($_POST))
-		return;
+		wp_redirect('/mijn?fail=1');
 	
 	$event_data = [
-		'start' => isset($_POST['startDate'])? new DateTime($_POST['startDate'], eo_get_blog_timezone()) : new DateTime(),
-		'end'   => isset($_POST['endDate'])? new DateTime($_POST['endDate'], eo_get_blog_timezone()) : new DateTime(),
+		'start' => isset($_POST['startDate'])? Carbon::createFromTimestamp( (int) substr($_POST[ 'startDate' ], 0, -3) ) : new DateTime(),
+		'end'   => isset($_POST['endDate'])? Carbon::createFromTimestamp( (int) substr( $_POST[ 'endDate' ], 0, -3) ) : new DateTime(),
 	];
 	
-	if( $_POST['repeat'] === 'on') {
-		$event_data += [
-			'schedule'  =>  'weekly',
-			'schedule_meta' => [
-				$_POST['day-mo']?? null,
-				$_POST['day-tu']?? null,
-				$_POST['day-we']?? null,
-				$_POST['day-th']?? null,
-				$_POST['day-fr']?? null,
-				$_POST['day-sa']?? null,
-				$_POST['day-su']?? null,
-			],
-			'frequency' => 1
-		];
+	if( isset($_POST['repeat'])) {
+		if( $_POST['repeat'] === 'on') {
+			$event_data += [
+				'schedule'  =>  'weekly',
+				'schedule_meta' => [
+					$_POST['day-mo']?? null,
+					$_POST['day-tu']?? null,
+					$_POST['day-we']?? null,
+					$_POST['day-th']?? null,
+					$_POST['day-fr']?? null,
+					$_POST['day-sa']?? null,
+					$_POST['day-su']?? null,
+				],
+				'frequency' => 1
+			];
+		}
 	}
+
 	
 	$post_data = [
 		'post_title'    => $_POST['title'],
@@ -57,6 +61,8 @@ function boot_new_event_callback() {
 	if( $_FILES['thumbnail']['error'] !== 4) {
 		$move_thumbnail = wp_handle_upload( $_FILES[ 'thumbnail' ], ['action' => 'new_event']);
 		$filename = $move_thumbnail['file'];
+	} else {
+		wp_redirect('/mijn?fail=1');
 	}
 	
 	$event = eo_insert_event($post_data, $event_data);
@@ -79,7 +85,7 @@ function boot_new_event_callback() {
 		set_post_thumbnail( $event, $attach_id);
 	}
 
+	update_field('organisator', get_current_user_id(), $event);
 	
-	wp_send_json_success( ['working', $event, $event_data] );
-	
+	wp_redirect('/mijn?success=1');
 }

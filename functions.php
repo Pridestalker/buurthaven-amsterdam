@@ -21,6 +21,7 @@ array_map(
 		'timber/init',
 		
 		'shortcodes/users/general',
-		'shortcodes/events/new-event-form'
+		'shortcodes/events/new-event-form',
+		'shortcodes/events/get-events',
 	]
 );
