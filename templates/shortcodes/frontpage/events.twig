@@ -1,10 +1,12 @@
-{% for post in posts %}
-    <article style="background-image: url({{ post.thumbnail.src }});" class="frontpage__agenda-block">
-        <h5 class="frontpage__agenda-date m-0">
-            {{ post._eventorganiser_schedule_start_start|date('D j F') }}
-        </h5>
-        <h3 class="frontpage__agenda-title">
-            {{ post.title }}
-        </h3>
-    </article>
-{% endfor %}
+<div class="row">
+    {% for post in posts %}
+        <article style="background-image: url({{ post.thumbnail.src }});" class="frontpage__agenda-block col-md-4">
+            <h5 class="frontpage__agenda-date m-0">
+                {{ post._eventorganiser_schedule_start_start|date('D j F') }}
+            </h5>
+            <h3 class="frontpage__agenda-title">
+                {{ post.title }}
+            </h3>
+        </article>
+    {% endfor %}
+</div>
