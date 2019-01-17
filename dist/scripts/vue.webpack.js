@@ -105,7 +105,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-Vue.component('new-event-component', __webpack_require__(/*! ./components/new-event-component */ "./assets/vue/components/new-event-component.vue"));
+Vue.component('new-event-component', __webpack_require__(/*! ./components/new-event-component */ "./assets/vue/components/new-event-component.vue").default);
 var app = new Vue({
   el: "#app"
 });
