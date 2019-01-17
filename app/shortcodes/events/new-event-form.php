@@ -18,3 +18,11 @@ function sh_new_event($atts) {
 	
 	return \Timber\Timber::compile( 'templates/shortcodes/events/new-event-form.twig', [ 'user' => $user ]);
 }
+
+add_action( 'admin_post_new_event', 'boot_new_event_callback' );
+add_action( 'admin_post_nopriv_new_event', 'boot_new_event_callback');
+
+
+function boot_new_event_callback() {
+	wp_send_json( $_POST);
+}

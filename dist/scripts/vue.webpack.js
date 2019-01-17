@@ -234,6 +234,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new-event-component",
@@ -243,17 +269,25 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       repeat: false,
-      days: null,
+      repeat_days: [],
       startDate: null,
-      endDate: null
+      endDate: null,
+      image: null
     };
   },
   methods: {
     submitForm: function submitForm() {
-      console.log(repeat);
-      console.log(days);
-      console.log(startDate);
-      console.log(endDate);
+      console.log(this.repeat);
+      console.log(this.repeat_days);
+      console.log(this.startDate);
+      console.log(this.endDate);
+      console.log(this.image);
+    },
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      console.log(files);
+      this.image = files[0];
     }
   }
 });
@@ -746,6 +780,7 @@ var render = function() {
   return _c(
     "form",
     {
+      attrs: { enctype: "multipart/form-data" },
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -757,6 +792,62 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "startDate" } }, [
+            _vm._v("Begindatum (en tijd)")
+          ]),
+          _vm._v(" "),
+          _c("date-picker", {
+            attrs: {
+              type: "datetime",
+              lang: "en",
+              "minute-step": 15,
+              confirm: "",
+              format: "YYYY-MM-DD hh:mm:ss"
+            },
+            model: {
+              value: _vm.startDate,
+              callback: function($$v) {
+                _vm.startDate = $$v
+              },
+              expression: "startDate"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "endDate" } }, [
+            _vm._v("Einddatum en tijd")
+          ]),
+          _vm._v(" "),
+          _c("date-picker", {
+            attrs: {
+              type: "datetime",
+              lang: "en",
+              "minute-step": 15,
+              confirm: "",
+              format: "YYYY-MM-DD hh:mm:ss"
+            },
+            model: {
+              value: _vm.endDate,
+              callback: function($$v) {
+                _vm.endDate = $$v
+              },
+              expression: "endDate"
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _c("div", { staticClass: "custom-control custom-checkbox" }, [
@@ -807,103 +898,412 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c("label", { attrs: { for: "startDate" } }, [
-            _vm._v("Begindatum (en tijd)")
-          ]),
-          _vm._v(" "),
-          _c("date-picker", {
-            attrs: { lang: "en", id: "startDate", "minute-step": "15" },
-            model: {
-              value: _vm.startDate,
-              callback: function($$v) {
-                _vm.startDate = $$v
-              },
-              expression: "startDate"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "form-group" },
-        [
-          _c("label", { attrs: { for: "endDate" } }, [
-            _vm._v("Einddatum en tijd")
-          ]),
-          _vm._v(" "),
-          _c("date-picker", {
-            attrs: { lang: "en", id: "endDate", "minute-step": "15" },
-            model: {
-              value: _vm.endDate,
-              callback: function($$v) {
-                _vm.endDate = $$v
-              },
-              expression: "endDate"
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
       _vm.repeat
         ? _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "days" } }, [
-              _vm._v("Wanneer is dit evenement?")
-            ]),
+            _c("span", [_vm._v("Wanneer herhaalt dit evenement?")]),
             _vm._v(" "),
-            _c(
-              "select",
-              {
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.days,
-                    expression: "days"
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
                   }
                 ],
-                staticClass: "form-control",
-                attrs: { name: "days", id: "days", multiple: "" },
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-mo",
+                  value: "MO"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "MO") > -1
+                    : _vm.repeat_days
+                },
                 on: {
                   change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.days = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "MO",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
                   }
                 }
-              },
-              [
-                _c("option", { attrs: { value: "MO" } }, [_vm._v("Maandag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "TU" } }, [_vm._v("Dinsdag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "WE" } }, [_vm._v("Woensdag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "TH" } }, [_vm._v("Donderdag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "FR" } }, [_vm._v("Vrijdag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "SA" } }, [_vm._v("Zaterdag")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "SU" } }, [_vm._v("Zondag")])
-              ]
-            )
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-mo" }
+                },
+                [_vm._v("Maandag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-tu",
+                  value: "TU"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "TU") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "TU",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-tu" }
+                },
+                [_vm._v("Dinsdag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-we",
+                  value: "WE"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "WE") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "WE",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-we" }
+                },
+                [_vm._v("Woendag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-th",
+                  value: "TH"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "TH") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "TH",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-th" }
+                },
+                [_vm._v("Donderdag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-fr",
+                  value: "FR"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "FR") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "FR",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-fr" }
+                },
+                [_vm._v("Vrijdag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-sa",
+                  value: "SA"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "SA") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "SA",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-sa" }
+                },
+                [_vm._v("Zaterdag")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "custom-control custom-checkbox" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repeat_days,
+                    expression: "repeat_days"
+                  }
+                ],
+                staticClass: "custom-control-input",
+                attrs: {
+                  type: "checkbox",
+                  name: "repeat",
+                  id: "day-su",
+                  value: "SU"
+                },
+                domProps: {
+                  checked: Array.isArray(_vm.repeat_days)
+                    ? _vm._i(_vm.repeat_days, "SU") > -1
+                    : _vm.repeat_days
+                },
+                on: {
+                  change: function($event) {
+                    var $$a = _vm.repeat_days,
+                      $$el = $event.target,
+                      $$c = $$el.checked ? true : false
+                    if (Array.isArray($$a)) {
+                      var $$v = "SU",
+                        $$i = _vm._i($$a, $$v)
+                      if ($$el.checked) {
+                        $$i < 0 && (_vm.repeat_days = $$a.concat([$$v]))
+                      } else {
+                        $$i > -1 &&
+                          (_vm.repeat_days = $$a
+                            .slice(0, $$i)
+                            .concat($$a.slice($$i + 1)))
+                      }
+                    } else {
+                      _vm.repeat_days = $$c
+                    }
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "custom-control-label",
+                  attrs: { for: "day-su" }
+                },
+                [_vm._v("Zondag")]
+              )
+            ])
           ])
         : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("div", { staticClass: "custom-file" }, [
+          _c("input", {
+            staticClass: "custom-file-input",
+            attrs: { type: "file", id: "customFile", accept: "image/*" },
+            on: { change: _vm.onFileChange }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "custom-file-label", attrs: { for: "customFile" } },
+            [_vm._v("Kies foto")]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("button", { attrs: { type: "submit" } }, [_vm._v("Aanmaken")])
     ]
