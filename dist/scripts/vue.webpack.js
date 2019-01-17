@@ -1930,6 +1930,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1962,14 +1963,14 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.endDate);
       console.log(this.image);
       var sendme = {
+        'action': this.action,
         'repeat': this.repeat,
         'days': this.repeat_days,
         'start': this.startDate,
-        'end': this.endDate,
-        'img': this.image
+        'end': this.endDate // 'img': this.image
+
       };
-      console.log(sendme);
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("".concat(this.url, "?action=").concat(this.action), sendme).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("".concat(this.url), sendme).then(function (res) {
         return console.log(res);
       }).catch(function (err) {
         return console.log(err);
@@ -2504,13 +2505,7 @@ var render = function() {
   return _c(
     "form",
     {
-      attrs: { enctype: "multipart/form-data" },
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.submitForm($event)
-        }
-      }
+      attrs: { method: "POST", action: _vm.url, enctype: "multipart/form-data" }
     },
     [
       _vm._m(0),
@@ -3028,6 +3023,27 @@ var render = function() {
           )
         ])
       ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: this.action,
+            expression: "this.action"
+          }
+        ],
+        attrs: { type: "hidden", id: "action" },
+        domProps: { value: this.action },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(this, "action", $event.target.value)
+          }
+        }
+      }),
       _vm._v(" "),
       _c("button", { attrs: { type: "submit" } }, [_vm._v("Aanmaken")])
     ]

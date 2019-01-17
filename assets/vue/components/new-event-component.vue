@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="submitForm" enctype="multipart/form-data">
+    <form method="POST" :action="url" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">Evenement naam</label>
             <input type="text" id="title" placeholder="Evenement naam" class="form-control">
@@ -62,6 +62,7 @@
                 <label class="custom-file-label" for="customFile">Kies foto</label>
             </div>
         </div>
+        <input type="hidden" id="action" v-model="this.action">
         <button type="submit">Aanmaken</button>
     </form>
 </template>
@@ -99,16 +100,15 @@
 				console.log(this.image);
                 
                 let sendme = {
+                	'action': this.action,
 					'repeat': this.repeat,
                     'days': this.repeat_days,
                     'start': this.startDate,
                     'end': this.endDate,
-                    'img': this.image
+                    // 'img': this.image
                 };
                 
-                console.log(sendme)
-                
-                axios.post(`${this.url}?action=${this.action}`, sendme)
+                axios.post(`${this.url}`, sendme)
                     .then(res => console.log(res))
                     .catch(err => console.log(err))
                 
