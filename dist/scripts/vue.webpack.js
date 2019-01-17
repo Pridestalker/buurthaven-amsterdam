@@ -748,23 +748,47 @@ var render = function() {
       _c("div", { staticClass: "form-group" }, [
         _c("div", { staticClass: "custom-control custom-checkbox" }, [
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.repeat,
+                expression: "repeat"
+              }
+            ],
             staticClass: "custom-control-input",
-            attrs: { type: "checkbox", name: "repeat", id: "repeat" }
+            attrs: { type: "checkbox", name: "repeat", id: "repeat" },
+            domProps: {
+              checked: Array.isArray(_vm.repeat)
+                ? _vm._i(_vm.repeat, null) > -1
+                : _vm.repeat
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.repeat,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.repeat = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.repeat = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.repeat = $$c
+                }
+              }
+            }
           }),
           _vm._v(" "),
           _c(
             "label",
-            {
-              staticClass: "custom-control-label",
-              attrs: { for: "repeat" },
-              model: {
-                value: _vm.repeat,
-                callback: function($$v) {
-                  _vm.repeat = $$v
-                },
-                expression: "repeat"
-              }
-            },
+            { staticClass: "custom-control-label", attrs: { for: "repeat" } },
             [_vm._v("Herhaalt dit evenement zich?")]
           )
         ])
