@@ -740,8 +740,205 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.submitForm($event)
+        }
+      }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("div", { staticClass: "custom-control custom-checkbox" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.repeat,
+                expression: "repeat"
+              }
+            ],
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", name: "repeat", id: "repeat" },
+            domProps: {
+              checked: Array.isArray(_vm.repeat)
+                ? _vm._i(_vm.repeat, null) > -1
+                : _vm.repeat
+            },
+            on: {
+              change: function($event) {
+                var $$a = _vm.repeat,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = null,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.repeat = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.repeat = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.repeat = $$c
+                }
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "custom-control-label", attrs: { for: "repeat" } },
+            [_vm._v("Herhaalt dit evenement zich?")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "startDate" } }, [
+            _vm._v("Begindatum (en tijd)")
+          ]),
+          _vm._v(" "),
+          _c("date-picker", {
+            attrs: { lang: "en", id: "startDate" },
+            model: {
+              value: _vm.startDate,
+              callback: function($$v) {
+                _vm.startDate = $$v
+              },
+              expression: "startDate"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "form-group" },
+        [
+          _c("label", { attrs: { for: "endDate" } }, [
+            _vm._v("Einddatum en tijd")
+          ]),
+          _vm._v(" "),
+          _c("date-picker", {
+            attrs: { lang: "en", id: "endDate" },
+            model: {
+              value: _vm.startDate,
+              callback: function($$v) {
+                _vm.startDate = $$v
+              },
+              expression: "startDate"
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.repeat
+        ? _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "days" } }, [
+              _vm._v("Wanneer is dit evenement?")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.days,
+                    expression: "days"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { name: "days", id: "days", multiple: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.days = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "MO" } }, [_vm._v("Maandag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "TU" } }, [_vm._v("Dinsdag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "WE" } }, [_vm._v("Woensdag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "TH" } }, [_vm._v("Donderdag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "FR" } }, [_vm._v("Vrijdag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "SA" } }, [_vm._v("Zaterdag")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "SU" } }, [_vm._v("Zondag")])
+              ]
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("button", { attrs: { type: "submit" } }, [_vm._v("Aanmaken")])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "title" } }, [_vm._v("Evenement naam")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: { type: "text", id: "title", placeholder: "Evenement naam" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "description" } }, [_vm._v("Omschrijving")]),
+      _vm._v(" "),
+      _c("textarea", {
+        staticClass: "form-control",
+        attrs: { id: "description", placeholder: "Omschrijving", rows: "3" }
+      })
+    ])
+  }
+]
+render._withStripped = true
 
 
 

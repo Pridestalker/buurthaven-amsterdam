@@ -27,7 +27,7 @@
         </div>
         <div v-if="repeat" class="form-group">
             <label for="days">Wanneer is dit evenement?</label>
-            <select name="days" id="days" multiple v-model="days[]" class="form-control">
+            <select name="days" id="days" multiple v-model="days" class="form-control">
                 <option value="MO">Maandag</option>
                 <option value="TU">Dinsdag</option>
                 <option value="WE">Woensdag</option>
