@@ -17,14 +17,15 @@
         <div class="form-group">
             <!--<label for="startDate">Begindatum (en tijd)</label>-->
             <!--<input type="text" id="startDate" class="form-control">-->
-            <date-picker v-model="startDate"></date-picker>
+            <date-picker v-model="startDate" lang="en"></date-picker>
         </div>
         <div class="form-group">
             <label for="endDate">Einddatum en tijd</label>
             <input type="text" id="endDate" class="form-control">
         </div>
         <div v-if="repeat" class="form-group">
-            <select name="days" id="days" multiple v-model="days">
+            <label for="days">Wanneer is dit evenement?</label>
+            <select name="days" id="days" multiple v-model="days" class="form-control">
                 <option value="MO">Maandag</option>
                 <option value="TU">Dinsdag</option>
                 <option value="WE">Woensdag</option>

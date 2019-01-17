@@ -231,6 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "new-event-component",
@@ -799,6 +800,7 @@ var render = function() {
         { staticClass: "form-group" },
         [
           _c("date-picker", {
+            attrs: { lang: "en" },
             model: {
               value: _vm.startDate,
               callback: function($$v) {
@@ -815,6 +817,10 @@ var render = function() {
       _vm._v(" "),
       _vm.repeat
         ? _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "days" } }, [
+              _vm._v("Wanneer is dit evenement?")
+            ]),
+            _vm._v(" "),
             _c(
               "select",
               {
@@ -826,6 +832,7 @@ var render = function() {
                     expression: "days"
                   }
                 ],
+                staticClass: "form-control",
                 attrs: { name: "days", id: "days", multiple: "" },
                 on: {
                   change: function($event) {
