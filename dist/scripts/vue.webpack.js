@@ -244,7 +244,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       repeat: false,
-      days: [],
+      days: null,
       startDate: null,
       endDate: null
     };

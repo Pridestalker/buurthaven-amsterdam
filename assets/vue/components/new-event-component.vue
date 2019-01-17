@@ -50,7 +50,7 @@
         data() {
 			return {
 				repeat: false,
-                days: [],
+                days: null,
                 startDate: null,
                 endDate: null
             }
