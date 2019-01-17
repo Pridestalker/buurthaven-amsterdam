@@ -1,6 +1,6 @@
 <div class="row">
     {% for post in posts %}
-        <a href="{{ post.link }}" class="col-md-4">
+        <a href="{{ post.link }}" class="col-md-4 p-0">
             <article style="background-image: url({{ post.thumbnail.src }});" class="frontpage__agenda-block d-flex flex-column justify-content-end">
                 <h5 class="frontpage__agenda-date m-0 text-dark">
                     {{ post._eventorganiser_schedule_start_start|date('D j F') }}
