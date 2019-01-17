@@ -1931,6 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1944,33 +1945,36 @@ __webpack_require__.r(__webpack_exports__);
       repeat_days: [],
       startDate: null,
       endDate: null,
-      image: null
+      image: null,
+      sendme: {}
     };
   },
   props: {
     url: {
-      default: '//buurthaven.amsterdam/wp-admin/admin-post.php'
+      default: '//buurthaven.amsterdam/wp-admin/admin-post.php?action=new_event'
     },
     action: {
       default: 'new_event'
+    },
+    user: {
+      type: Number,
+      default: null
     }
   },
   methods: {
     submitForm: function submitForm() {
-      console.log(this.repeat);
-      console.log(this.repeat_days);
-      console.log(this.startDate);
-      console.log(this.endDate);
-      console.log(this.image);
-      var sendme = {
-        'action': this.action,
+      this.sendme = {
         'repeat': this.repeat,
         'days': this.repeat_days,
         'start': this.startDate,
-        'end': this.endDate // 'img': this.image
-
+        'end': this.endDate,
+        'img': this.image
       };
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("".concat(this.url), sendme).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("".concat(this.url), this.sendme, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
         return console.log(res);
       }).catch(function (err) {
         return console.log(err);
@@ -2505,7 +2509,12 @@ var render = function() {
   return _c(
     "form",
     {
-      attrs: { method: "POST", action: _vm.url, enctype: "multipart/form-data" }
+      attrs: {
+        method: "POST",
+        action: _vm.url,
+        enctype: "multipart/form-data"
+      },
+      on: { submit: _vm.submitForm }
     },
     [
       _vm._m(0),
@@ -2522,6 +2531,7 @@ var render = function() {
           _vm._v(" "),
           _c("date-picker", {
             attrs: {
+              name: "startDate",
               type: "datetime",
               lang: "en",
               "minute-step": 15,
@@ -2550,6 +2560,7 @@ var render = function() {
           _vm._v(" "),
           _c("date-picker", {
             attrs: {
+              name: "endDate",
               type: "datetime",
               lang: "en",
               "minute-step": 15,
@@ -2634,7 +2645,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-mo",
                   id: "day-mo",
                   value: "MO"
                 },
@@ -2689,7 +2700,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-tu",
                   id: "day-tu",
                   value: "TU"
                 },
@@ -2744,7 +2755,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-we",
                   id: "day-we",
                   value: "WE"
                 },
@@ -2799,7 +2810,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-th",
                   id: "day-th",
                   value: "TH"
                 },
@@ -2854,7 +2865,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-fr",
                   id: "day-fr",
                   value: "FR"
                 },
@@ -2909,7 +2920,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-sa",
                   id: "day-sa",
                   value: "SA"
                 },
@@ -2964,7 +2975,7 @@ var render = function() {
                 staticClass: "custom-control-input",
                 attrs: {
                   type: "checkbox",
-                  name: "repeat",
+                  name: "day-su",
                   id: "day-su",
                   value: "SU"
                 },
@@ -3012,14 +3023,23 @@ var render = function() {
         _c("div", { staticClass: "custom-file" }, [
           _c("input", {
             staticClass: "custom-file-input",
-            attrs: { type: "file", id: "customFile", accept: "image/*" },
+            attrs: {
+              type: "file",
+              name: "thumbnail",
+              id: "thumbnail",
+              accept: "image/*"
+            },
             on: { change: _vm.onFileChange }
           }),
           _vm._v(" "),
           _c(
             "label",
-            { staticClass: "custom-file-label", attrs: { for: "customFile" } },
-            [_vm._v("Kies foto")]
+            { staticClass: "custom-file-label", attrs: { for: "thumbnail" } },
+            [
+              _vm.image
+                ? _c("span", [_vm._v(_vm._s(_vm.image.name))])
+                : _c("span", [_vm._v("Kies foto")])
+            ]
           )
         ])
       ]),
@@ -3029,18 +3049,39 @@ var render = function() {
           {
             name: "model",
             rawName: "v-model",
-            value: this.action,
-            expression: "this.action"
+            value: _vm.action,
+            expression: "action"
           }
         ],
-        attrs: { type: "hidden", id: "action" },
-        domProps: { value: this.action },
+        attrs: { type: "hidden", id: "action", name: "action" },
+        domProps: { value: _vm.action },
         on: {
           input: function($event) {
             if ($event.target.composing) {
               return
             }
-            _vm.$set(this, "action", $event.target.value)
+            _vm.action = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.user,
+            expression: "user"
+          }
+        ],
+        attrs: { type: "hidden", id: "user", name: "user" },
+        domProps: { value: _vm.user },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.user = $event.target.value
           }
         }
       }),
@@ -3059,7 +3100,12 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
-        attrs: { type: "text", id: "title", placeholder: "Evenement naam" }
+        attrs: {
+          type: "text",
+          name: "title",
+          id: "title",
+          placeholder: "Evenement naam"
+        }
       })
     ])
   },
@@ -3072,7 +3118,12 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("textarea", {
         staticClass: "form-control",
-        attrs: { id: "description", placeholder: "Omschrijving", rows: "3" }
+        attrs: {
+          id: "description",
+          name: "description",
+          placeholder: "Omschrijving",
+          rows: "3"
+        }
       })
     ])
   }
