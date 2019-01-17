@@ -15,11 +15,18 @@
                 </div>
                 <div class="col-md-6">
                     <p class="summary">
-                        {{ post.content }}
+                        {{ post.post_content }}
                     </p>
                     <p class="datum text-white text-lowercase">
-                        {{ post }}
-                        {#ma, wo en za: 10-17 uur#}
+                        {% for day in post._eventorganiser_event_schedule.schedule_meta %}
+                            <span class="dag">{{ __(day, 'buurthvn') }}{% if not loop.last %}, {% endif %}{% if loop.last %}: {% endif %}</span>
+                        {% endfor %}
+                        {% if not post.all_day %}
+                            {{ post.StartTime|date('H:i') }}
+                            {% if post.FinishTime %}
+                                - {{ post.FinishTime|date('H:i') }}
+                            {% endif %}
+                        {% endif %}
                     </p>
                     <p class="website">
                         {#{{ post.meta('website') }}#}
@@ -28,4 +35,7 @@
             </section>
         </div>
     </article>
+
+    {#{{ dump(post) }}#}
+    {{ dump(owner) }}
 {% endblock %}
