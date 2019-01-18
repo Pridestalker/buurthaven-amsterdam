@@ -23,8 +23,13 @@
   width: 140px;
 }
 
+.logo__container {
+  font-size: 22px;
+}
+
 .logo__link {
   margin: auto;
+  text-decoration: none;
 }
 
 header[data-sticky=header].fixme {
