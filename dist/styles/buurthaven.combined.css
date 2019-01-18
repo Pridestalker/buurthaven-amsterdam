@@ -76,7 +76,7 @@ body.custom-background:not(.home) {
 .social__blocks {
   position: fixed;
   top: 45%;
-  right: 20px;
+  right: 0;
 }
 
 .social__blocks a[class*=social__blocks__link-],
