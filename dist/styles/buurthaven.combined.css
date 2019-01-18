@@ -136,6 +136,7 @@ body.custom-background:not(.home) .main.header_fixed {
     width: 220px;
     text-align: center;
     margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
