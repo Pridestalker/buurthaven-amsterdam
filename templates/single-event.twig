@@ -23,8 +23,8 @@
                     <p class="datum text-white text-lowercase">
                         elke
                         {% for day in post._eventorganiser_event_schedule.schedule_meta %}
+                            {% spaceless %}
                             <span class="dag">
-                                {% spaceless %}
                                     {% if day == 'MO' %}
                                         Maandag
                                     {% endif %}
@@ -54,8 +54,8 @@
                                     {% endif %}
 
                                     {% if not loop.last %}, {% endif %}{% if loop.last %}: {% endif %}
-                                {% endspaceless %}
                             </span>
+                            {% endspaceless %}
                         {% endfor %}
                         {% if not post.all_day %}
                             van {{ post.StartTime|date('H:i') }}
