@@ -84,7 +84,7 @@ body.custom-background:not(.home) {
   display: none;
   background: var(--green);
   opacity: 0;
-  position: absolute;
+  position: fixed;
 }
 
 .menu-container.active {
