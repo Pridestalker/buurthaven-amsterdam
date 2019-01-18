@@ -36,5 +36,5 @@ add_shortcode( 'grid_agenda', function ( $atts ) {
 		}
 	}
 	
-	return \Timber\Timber::compile('templates/shortcodes/events/agenda.twig');
+	return \Timber\Timber::compile('templates/shortcodes/event/agenda.twig');
 });
