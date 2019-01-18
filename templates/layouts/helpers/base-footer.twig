@@ -6,6 +6,7 @@
     {{ logo.src|retina(4) }} 4x" class="buurthaven__logo-footer">
     </figure>
     <aside>
-        {% elementor_theme_do_location( 'footer-aside' ) %}
+        {% if elementor_theme_do_location( 'footer-aside' ) %}
+        {% endif %}
     </aside>
 </footer>
