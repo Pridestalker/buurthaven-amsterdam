@@ -22,3 +22,19 @@ add_shortcode( 'frontpage-events', function ( $atts ) {
 	
 	return \Timber\Timber::compile( 'templates/shortcodes/frontpage/events.twig', $context);
 });
+
+add_shortcode( 'grid_agenda', function ( $atts ) {
+	$events = eo_get_events([
+		'numberposts'       => 5,
+		'showpastevents'    => true
+	]);
+	$context['posts'] = [];
+	
+	if( $events ) {
+		foreach ( $events as $event ) {
+			$context['posts'] [] = new \Timber\Post($event->ID);
+		}
+	}
+	
+	return \Timber\Timber::compile('templates/shortcodes/events/agenda.twig');
+});
