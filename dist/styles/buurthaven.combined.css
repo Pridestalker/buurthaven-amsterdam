@@ -27,6 +27,11 @@
   font-size: 22px;
 }
 
+.logo__container figcaption {
+  text-align: center;
+  color: var(--dark);
+}
+
 .logo__link {
   margin: auto;
   text-decoration: none;
