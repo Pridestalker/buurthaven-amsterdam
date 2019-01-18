@@ -57,10 +57,6 @@ body.custom-background:not(.home) {
   background-image: none !important;
 }
 
-body.custom-background:not(.home) .main.header_fixed {
-  padding-top: 117px;
-}
-
 .bg-yellow {
   background-color: var(--yellow);
 }
