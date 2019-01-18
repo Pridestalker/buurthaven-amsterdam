@@ -24,10 +24,11 @@ add_shortcode( 'frontpage-events', function ( $atts ) {
 });
 
 add_shortcode( 'grid_agenda', function ( $atts ) {
-	$events = eo_get_events([
-		'numberposts'       => 5,
-		'showpastevents'    => true
-	]);
+	$events = eo_get_events(array(
+		'numberposts'       => 3,
+//		'event_start_after' => 'today',
+		'showpastevents'    => true,//Will be deprecated, but set it to true to play it safe.
+	));
 	$context['posts'] = [];
 	
 	if( $events ) {
