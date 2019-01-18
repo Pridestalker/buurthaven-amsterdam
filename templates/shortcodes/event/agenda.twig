@@ -1,12 +1,14 @@
 <section class="agenda__grid-container">
     {% for post in posts %}
-        <a href="{{ post.link }}" class="agenda__grid-item agenda__grid-item-{{ loop.index }} d-flex" style="background-image: url({{ post.thumbnail.src('medium_large') }});">
-                <span class="date">
-                        {{ post.StartDate|date('D j F') }}
+        <a href="{{ post.link }}" class="agenda__grid-item agenda__grid-item-{{ loop.index }} d-flex align-items-end p-2" style="background-image: url({{ post.thumbnail.src('medium_large') }});">
+            <article class="">
+                <span class="date text-white d-block">
+                    {{ post.StartDate|date('D j F') }}
                 </span>
-                <span class="title">
-                        {{ post.title }}
+                <span class="title text-white d-block">
+                    {{ post.title }}
                 </span>
+            </article>
         </a>
     {% endfor %}
 </section>

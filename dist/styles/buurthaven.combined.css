@@ -169,6 +169,12 @@ body.custom-background:not(.home) {
   background-position: center center;
 }
 
+.agenda__grid-item .date,
+.agenda__grid-item .title {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 .agenda__grid-item-1 {
   grid-area: first;
 }
