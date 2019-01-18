@@ -21,13 +21,43 @@
                         {{ post.post_content|shortcodes }}
                     </p>
                     <p class="datum text-white text-lowercase">
+                        elke
                         {% for day in post._eventorganiser_event_schedule.schedule_meta %}
-                            <span class="dag">{{ __(day, 'buurthvn') }}{% if not loop.last %}, {% endif %}{% if loop.last %}: {% endif %}</span>
+                            <span class="dag">
+                                {% if day === 'mo' %}
+                                    Maandag
+                                {% endif %}
+
+                                {% if day === 'tu' %}
+                                    Dinsdag
+                                {% endif %}
+
+                                {% if day === 'we' %}
+                                    Woensdag
+                                {% endif %}
+
+                                {% if day === 'th' %}
+                                    Donderdag
+                                {% endif %}
+
+                                {% if day === 'fr' %}
+                                    Vrijdag
+                                {% endif %}
+
+                                {% if day === 'sa' %}
+                                    Zaterdag
+                                {% endif %}
+
+                                {% if day === 'su' %}
+                                    Zondag
+                                {% endif %}
+
+                                {% if not loop.last %}, {% endif %}{% if loop.last %}: {% endif %}</span>
                         {% endfor %}
                         {% if not post.all_day %}
-                            {{ post.StartTime|date('H:i') }}
+                            van {{ post.StartTime|date('H:i') }}
                             {% if post.FinishTime %}
-                                - {{ post.FinishTime|date('H:i') }}
+                                tot {{ post.FinishTime|date('H:i') }}
                             {% endif %}
                         {% endif %}
                     </p>
