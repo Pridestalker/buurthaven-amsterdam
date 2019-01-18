@@ -1,10 +1,10 @@
 {% if post.StartDate is same as(post.EndDate) %}
-    op {{ post.StartDate|date('l d F') }} om {{ post.StartTime|date('H:i') }}
+    {{ post.StartDate|date('l d F') }} <br> {{ post.StartTime|date('H:i') }}
 {% else %}
-    van {{ post.StartDate|date('l d F') }} {{ post.StartTime|date('H:i') }}
+    begin: {{ post.StartDate|date('l d F') }} {{ post.StartTime|date('H:i') }}
 {% endif %}
 {% if post.StartDate is not same as(post.EndDate) %}
-    tot {{ post.EndDate|date('l d F') }} {{ post.EndTime|date('H:i') }}
+    eind: {{ post.EndDate|date('l d F') }} {{ post.EndTime|date('H:i') }}
 {% else %}
-    tot {{ post.EndTime|date('H:i') }}
+    tot {{ post.EndTime|date('H:i') }} uur
 {% endif %}

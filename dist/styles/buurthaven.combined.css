@@ -21,6 +21,12 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .logo__container {
+    max-width: 400px;
+  }
+}
+
 .buurthaven__logo {
   max-width: 140px;
 }
@@ -136,7 +142,6 @@ body.custom-background:not(.home) .main.header_fixed {
 @media screen and (min-width: 415px) {
   .evenement .evenemt__title-block {
     margin-left: -110px;
-    width: 220px;
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;

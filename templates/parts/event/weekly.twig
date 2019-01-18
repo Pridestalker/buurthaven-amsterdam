@@ -1,6 +1,6 @@
 elke
-{% for day in post._eventorganiser_event_schedule.schedule_meta %}
-    {% spaceless %}
+{% spaceless %}
+    {% for day in post._eventorganiser_event_schedule.schedule_meta %}
         <span class="dag">
             {% if day == 'MO' %}Maandag{% endif %}
             {% if day == 'TU' %}Dinsdag{% endif %}
@@ -12,8 +12,9 @@ elke
             {#{% if not loop.last %}, {% endif %}#}
             {% if loop.last %}: {% endif %}
         </span>
-    {% endspaceless %}
-{% endfor %}
+    {% endfor %}
+{% endspaceless %}
+<br>
 {% if not post.all_day %}
     van {{ post.StartTime|date('H:i') }}
     {% if post.FinishTime %}
