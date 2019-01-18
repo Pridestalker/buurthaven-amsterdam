@@ -113,6 +113,10 @@ body.custom-background:not(.home) .main.header_fixed {
   right: 40px;
 }
 
+.hover-color-dark-dark-10 {
+  color: #1d2124 !important;
+}
+
 .evenement .evenement__img {
   -o-object-fit: cover;
      object-fit: cover;
