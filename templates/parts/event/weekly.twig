@@ -16,8 +16,11 @@ elke
 {% endspaceless %}
 <br>
 {% if not post.all_day %}
-    van {{ post.StartTime|date('H:i') }}
-    {% if post.FinishTime %}
-        tot {{ post.FinishTime|date('H:i') }}
-    {% endif %}
+    <span class="tijd">
+        van {{ post.StartTime|date('H:i') }}
+        {% if post.FinishTime %}
+            tot {{ post.FinishTime|date('H:i') }}
+        {% endif %}
+        uur
+    </span>
 {% endif %}
