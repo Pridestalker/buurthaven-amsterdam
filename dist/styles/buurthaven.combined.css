@@ -43,25 +43,8 @@
   text-decoration: none !important;
 }
 
-header[data-sticky=header].fixme .logo__link {
-  margin: 0;
-  margin-left: 2rem;
-}
-
-header[data-sticky=header].fixme .logo__link .logo__container figcaption {
-  display: none;
-}
-
-header[data-sticky=header].fixme .logo__link .buurthaven__logo {
-  width: 140px;
-}
-
 footer[data-template] {
   background: var(--green);
-}
-
-.main.header_fixed {
-  padding-top: 294px;
 }
 
 body.custom-background:not(.home) {
