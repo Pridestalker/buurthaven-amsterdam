@@ -63,6 +63,10 @@ body.custom-background:not(.home) {
   background-image: none !important;
 }
 
+body.custom-background:not(.home) .main.header_fixed {
+  padding-top: 117px;
+}
+
 .bg-yellow {
   background-color: var(--yellow);
 }
@@ -71,6 +75,28 @@ body.custom-background:not(.home) {
   font-size: 54px;
   font-weight: bold;
   font-style: italic;
+}
+
+.special-big-title.fixme {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.2);
+  height: 104px;
+}
+
+.special-big-title.fixme .logo__link {
+  margin: 0;
+  margin-left: 2rem;
+}
+
+.special-big-title.fixme .logo__link .logo__container figcaption {
+  display: none;
+}
+
+.special-big-title.fixme .logo__link .buurthaven__logo {
+  width: 140px;
 }
 
 .social__blocks {
