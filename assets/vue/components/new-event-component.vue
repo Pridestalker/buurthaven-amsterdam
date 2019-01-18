@@ -1,14 +1,14 @@
 <template>
     <form method="POST" :action="url" @submit="submitForm" enctype="multipart/form-data">
         <div class="alert alert-success" role="alert" v-if="success">
-            Jouw evenement is aan ons doorgegeven.
+            Jouw activiteit is aan ons doorgegeven.
         </div>
         <div class="alert alert-danger" role="alert" v-if="failure">
             Er is iets fout gegaan met het aanmaken.
             Waren alle velden ingevuld?
         </div>
         <div class="form-group">
-            <label for="title">Evenement naam</label>
+            <label for="title">Naam activiteit</label>
             <input type="text" name="title" id="title" placeholder="Evenement naam" class="form-control">
         </div>
         <div class="form-group">
@@ -26,12 +26,11 @@
         <div class="form-group">
             <div class="custom-control custom-checkbox">
                 <input v-model="repeat" type="checkbox" name="repeat" id="repeat" class="custom-control-input">
-                <label for="repeat" class="custom-control-label">Herhaalt dit evenement zich?</label>
+                <label for="repeat" class="custom-control-label">Wil je deze activiteit vaker organiseren?</label>
             </div>
         </div>
         <div v-if="repeat" class="form-group">
-            <span>Wanneer herhaalt dit evenement?</span>
-    
+            <span>Op welke dagen?</span>
             <div class="custom-control custom-checkbox">
                 <input v-model="repeat_days" type="checkbox" name="day-mo" id="day-mo" value="MO" class="custom-control-input">
                 <label for="day-mo" class="custom-control-label">Maandag</label>

@@ -1956,7 +1956,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3204,7 +3203,7 @@ var render = function() {
         ? _c(
             "div",
             { staticClass: "alert alert-success", attrs: { role: "alert" } },
-            [_vm._v("\n        Jouw evenement is aan ons doorgegeven.\n    ")]
+            [_vm._v("\n        Jouw activiteit is aan ons doorgegeven.\n    ")]
           )
         : _vm._e(),
       _vm._v(" "),
@@ -3328,14 +3327,14 @@ var render = function() {
           _c(
             "label",
             { staticClass: "custom-control-label", attrs: { for: "repeat" } },
-            [_vm._v("Herhaalt dit evenement zich?")]
+            [_vm._v("Wil je deze activiteit vaker organiseren?")]
           )
         ])
       ]),
       _vm._v(" "),
       _vm.repeat
         ? _c("div", { staticClass: "form-group" }, [
-            _c("span", [_vm._v("Wanneer herhaalt dit evenement?")]),
+            _c("span", [_vm._v("Op welke dagen?")]),
             _vm._v(" "),
             _c("div", { staticClass: "custom-control custom-checkbox" }, [
               _c("input", {
@@ -3847,7 +3846,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "title" } }, [_vm._v("Evenement naam")]),
+      _c("label", { attrs: { for: "title" } }, [_vm._v("Naam activiteit")]),
       _vm._v(" "),
       _c("input", {
         staticClass: "form-control",
