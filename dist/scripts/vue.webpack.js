@@ -2041,7 +2041,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-47eaef0a] {\n    font-weight: bold;\n}\n.bg-blue[data-v-47eaef0a] {\n    background: var(--blue)\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-47eaef0a] {\n    font-weight: bold;\n}\n.bg-blue[data-v-47eaef0a] {\n    background: var(--blue);\n    color: #fff;\n}\n.custom-file-label[data-v-47eaef0a]::after {\n    content: \"Kies\"\n}\n", ""]);
 
 // exports
 

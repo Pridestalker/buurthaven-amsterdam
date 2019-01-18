@@ -150,6 +150,10 @@
     }
     
     .bg-blue {
-        background: var(--blue)
+        background: var(--blue);
+        color: #fff;
+    }
+    .custom-file-label::after {
+        content: "Kies"
     }
 </style>
