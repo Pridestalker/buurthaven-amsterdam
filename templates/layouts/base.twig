@@ -25,7 +25,7 @@
             {% include 'templates/layouts/helpers/base-navigation.twig' %}
         {% endblock %}
     </header>
-    <main  id="content_{{ fn('get_queried_object_id') }}" {{ fn('post_class', 'main') }} data-template="base.twig">
+    <main  id="content_{{ fn('get_queried_object_id') }}" {{ fn('post_class', 'main', '') }} data-template="base.twig">
         <div id="app">
             {% block content %}
                 <!-- This will be overwritten by the content block in the inheriting .twig file -->

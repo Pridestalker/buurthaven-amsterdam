@@ -156,5 +156,10 @@ body.custom-background:not(.home) {
   background-position: center center;
 }
 
+.agenda__grid-container {
+  display: grid;
+  grid-template-areas: "";
+}
+
 
 /*# sourceMappingURL=buurthaven.combined.css.map*/
