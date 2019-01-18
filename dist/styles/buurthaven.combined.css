@@ -77,7 +77,7 @@ body.custom-background:not(.home) .main.header_fixed {
   font-style: italic;
 }
 
-.special-big-title.fixme {
+header[data-sticky=header].fixme {
   position: fixed;
   top: 0;
   width: 100%;
@@ -86,17 +86,21 @@ body.custom-background:not(.home) .main.header_fixed {
   height: 104px;
 }
 
-.special-big-title.fixme .logo__link {
+header[data-sticky=header].fixme .logo__link {
   margin: 0;
   margin-left: 2rem;
 }
 
-.special-big-title.fixme .logo__link .logo__container figcaption {
+header[data-sticky=header].fixme .logo__link .logo__container figcaption {
   display: none;
 }
 
-.special-big-title.fixme .logo__link .buurthaven__logo {
+header[data-sticky=header].fixme .logo__link .buurthaven__logo {
   width: 140px;
+}
+
+.main.header_fixed {
+  padding-top: 294px;
 }
 
 .social__blocks {
