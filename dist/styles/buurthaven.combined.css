@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 768px) {
   .home .buurthaven__logo {
     width: 400px;
   }
