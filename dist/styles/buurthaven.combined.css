@@ -167,6 +167,8 @@ body.custom-background:not(.home) {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-color: rgba(51, 51, 51, 0.2);
+  background-blend-mode: multiply;
 }
 
 .agenda__grid-item .date,
