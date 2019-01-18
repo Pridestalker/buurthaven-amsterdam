@@ -160,10 +160,13 @@ body.custom-background:not(.home) {
   display: grid;
   grid-template-areas: "first first second" "first first fifth" "third fourth fifth";
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 700px 350px 350px;
 }
 
 .agenda__grid-item {
-  height: 350px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .agenda__grid-item-1 {
