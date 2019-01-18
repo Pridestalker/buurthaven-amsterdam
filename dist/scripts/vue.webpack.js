@@ -1956,6 +1956,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2040,7 +2041,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-47eaef0a] {\n    font-weight: bold;\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-47eaef0a] {\n    font-weight: bold;\n}\n.bg-blue[data-v-47eaef0a] {\n    background: var(--blue)\n}\n", ""]);
 
 // exports
 
@@ -3219,6 +3220,8 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
+      _c("h2", [_vm._v("Activiteit aanmaken")]),
+      _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
       _vm._m(1),
@@ -3832,11 +3835,9 @@ var render = function() {
         }
       }),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn bg-yellow", attrs: { type: "submit" } },
-        [_vm._v("Aanmaken")]
-      )
+      _c("button", { staticClass: "btn bg-blue", attrs: { type: "submit" } }, [
+        _vm._v("Aanmaken")
+      ])
     ]
   )
 }
@@ -3854,7 +3855,7 @@ var staticRenderFns = [
           type: "text",
           name: "title",
           id: "title",
-          placeholder: "Evenement naam"
+          placeholder: "Naam activiteit"
         }
       })
     ])

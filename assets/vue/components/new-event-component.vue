@@ -7,9 +7,10 @@
             Er is iets fout gegaan met het aanmaken.
             Waren alle velden ingevuld?
         </div>
+        <h2>Activiteit aanmaken</h2>
         <div class="form-group">
             <label for="title">Naam activiteit</label>
-            <input type="text" name="title" id="title" placeholder="Evenement naam" class="form-control">
+            <input type="text" name="title" id="title" placeholder="Naam activiteit" class="form-control">
         </div>
         <div class="form-group">
             <label for="description">Omschrijving</label>
@@ -70,7 +71,7 @@
         <input type="hidden" id="user" name="user" v-model="user">
         <input type="hidden" id="startDate" name="startDate" v-model="startDate">
         <input type="hidden" id="endDate" name="endDate" v-model="endDate">
-        <button type="submit" class="btn bg-yellow">Aanmaken</button>
+        <button type="submit" class="btn bg-blue">Aanmaken</button>
     </form>
 </template>
 
@@ -146,5 +147,9 @@
 <style scoped>
     label {
         font-weight: bold;
+    }
+    
+    .bg-blue {
+        background: var(--blue)
     }
 </style>
