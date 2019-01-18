@@ -17,6 +17,13 @@ add_shortcode( 'organisation-fetch', function ( $atts ) {
 			'limit'     => $atts['limit'],
 			'status'    => 1,
 			'categories'=> 6,
+			'search'    => [
+				[
+					'key'       =>  'email',
+					'operator'  => '!=',
+					'val'       => 'support@doedejaarsma.nl',
+				]
+			]
 		]
 	) );
 	
