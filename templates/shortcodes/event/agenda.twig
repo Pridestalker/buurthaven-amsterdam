@@ -1,6 +1,6 @@
 <section class="agenda__grid-container">
     {% for post in posts %}
-        <a href="{{ post.link }}" class="agenda__grid-item d-flex" style="background-image: url({{ post.thumbnail.scr('medium_large') }});">
+        <a href="{{ post.link }}" class="agenda__grid-item d-flex" style="background-image: url({{ post.thumbnail.src('medium_large') }});">
                 <span class="date">
                         {{ post.StartDate|date('D j F') }}
                 </span>
