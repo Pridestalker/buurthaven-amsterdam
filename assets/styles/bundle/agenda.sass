@@ -1,8 +1,10 @@
+$grid_base_row: 350px
+
 .agenda__grid-container
   display: grid
   grid-template-areas: "first first second" "first first fifth" "third fourth fifth"
   grid-template-columns: 1fr 1fr 1fr
-  grid-template-rows: 700px 350px 350px
+  grid-template-rows: $grid_base_row*2 $grid_base_row $grid_base_row
 
 .agenda__grid-item
   -webkit-background-size: cover
