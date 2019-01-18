@@ -16,11 +16,11 @@
             <textarea id="description" name="description" placeholder="Omschrijving" class="form-control" rows="3"></textarea>
         </div>
         <div class="form-group">
-            <label for="startDate">Begindatum (en tijd)</label>
+            <label for="startDate" class="d-block">Begindatum (en tijd)</label>
             <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
         </div>
         <div class="form-group">
-            <label for="endDate">Einddatum (en tijd)</label>
+            <label for="endDate" class="d-block">Einddatum (en tijd)</label>
             <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
         </div>
         <div class="form-group">
@@ -145,5 +145,7 @@
 </script>
 
 <style scoped>
-
+    label {
+        font-weight: bold;
+    }
 </style>
