@@ -1973,7 +1973,14 @@ __webpack_require__.r(__webpack_exports__);
       image: null,
       sendme: {},
       success: false,
-      failure: false
+      failure: false,
+      lang: {
+        days: ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'],
+        months: ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sept', 'Okt', 'Nov', 'Dec'],
+        placeholder: {
+          date: 'Kies een datum'
+        }
+      }
     };
   },
   props: {
@@ -3242,7 +3249,8 @@ var render = function() {
               "minute-step": 15,
               confirm: "",
               "value-type": "timestamp",
-              format: "YYYY-MM-DD hh:mm:ss"
+              format: "YYYY-MM-DD hh:mm:ss",
+              lang: _vm.lang
             },
             model: {
               value: _vm.startDate,
@@ -3272,7 +3280,8 @@ var render = function() {
               "minute-step": 15,
               confirm: "",
               "value-type": "timestamp",
-              format: "YYYY-MM-DD hh:mm:ss"
+              format: "YYYY-MM-DD hh:mm:ss",
+              lang: _vm.lang
             },
             model: {
               value: _vm.endDate,

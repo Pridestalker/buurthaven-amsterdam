@@ -18,11 +18,11 @@
         </div>
         <div class="form-group">
             <label for="startDate" class="d-block">Begindatum (en tijd)</label>
-            <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
+            <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"></date-picker>
         </div>
         <div class="form-group">
             <label for="endDate" class="d-block">Einddatum (en tijd)</label>
-            <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss"></date-picker>
+            <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"></date-picker>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">
@@ -89,9 +89,19 @@
 				startDate: null,
 				endDate: null,
                 image: null,
+                
                 sendme: {},
+                
                 success: false,
                 failure: false,
+
+				lang: {
+					days: [ 'Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za' ],
+					months: [ 'Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sept', 'Okt', 'Nov', 'Dec' ],
+					placeholder: {
+						date: 'Kies een datum',
+					}
+				}
             }
         },
         props: {
