@@ -59,6 +59,10 @@ footer[data-template] {
   background: var(--green);
 }
 
+body:not(.home) .buurthaven__logo {
+  margin-bottom: 3rem;
+}
+
 body.custom-background:not(.home) {
   background-image: none !important;
 }
