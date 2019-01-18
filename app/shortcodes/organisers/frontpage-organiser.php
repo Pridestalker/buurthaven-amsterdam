@@ -21,20 +21,10 @@ add_shortcode( 'organisation-fetch', function ( $atts ) {
 		]
 	);
 	
-	$html = [];
-	
 	$context = \Timber\Timber::get_context();
 	
 	foreach ($users as $user) {
 		$context['users'] [$user->ID]= new Timber\User($user->ID);
-		
-		$args = array(
-			'numberposts' => -1,
-			'post_type' => 'event',
-			'meta_key' => 'organisator',
-			'meta_value' => 'red'
-		);
-		$context['users'] [$user->ID] ['posts']= Timber::get_posts($args);
 		
 		
 	}
