@@ -7,23 +7,25 @@
  */
 
 add_shortcode( 'organisation-fetch', function ( $atts ) {
+	global $pc_users;
+	
 	$atts = shortcode_atts( [
 		'limit' => 4
 	], $atts);
 	$context = [];
 	
-	var_dump( get_users(
+	var_dump( $pc_users->get_users(
 		[
 			'limit'     => $atts['limit'],
 			'status'    => 1,
 			'categories'=> 6,
-			'search'    => [
-				[
-					'key'       =>  'email',
-					'operator'  => '!=',
-					'val'       => 'support@doedejaarsma.nl',
-				]
-			]
+//			'search'    => [
+//				[
+//					'key'       =>  'email',
+//					'operator'  => '!=',
+//					'val'       => 'support@doedejaarsma.nl',
+//				]
+//			]
 		]
 	) );
 	
