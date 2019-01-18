@@ -9,8 +9,8 @@
 add_shortcode( 'frontpage-events', function ( $atts ) {
 	$events = eo_get_events(array(
 		'numberposts'       => 3,
-		'event_start_after' => 'today',
-		'showpastevents'    =>true,//Will be deprecated, but set it to true to play it safe.
+//		'event_start_after' => 'today',
+		'showpastevents'    => true,//Will be deprecated, but set it to true to play it safe.
 	));
 	$context['posts'] = [];
 	

@@ -1,0 +1,22 @@
+elke
+{% for day in post._eventorganiser_event_schedule.schedule_meta %}
+    {% spaceless %}
+        <span class="dag">
+            {% if day == 'MO' %}Maandag{% endif %}
+            {% if day == 'TU' %}Dinsdag{% endif %}
+            {% if day == 'WE' %}Woensdag{% endif %}
+            {% if day == 'TH' %}Donderdag{% endif %}
+            {% if day == 'FR' %}Vrijdag{% endif %}
+            {% if day == 'SA' %}Zaterdag{% endif %}
+            {% if day == 'SU' %}Zondag{% endif %}
+            {#{% if not loop.last %}, {% endif %}#}
+            {% if loop.last %}: {% endif %}
+        </span>
+    {% endspaceless %}
+{% endfor %}
+{% if not post.all_day %}
+    van {{ post.StartTime|date('H:i') }}
+    {% if post.FinishTime %}
+        tot {{ post.FinishTime|date('H:i') }}
+    {% endif %}
+{% endif %}

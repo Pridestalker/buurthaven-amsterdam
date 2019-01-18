@@ -21,27 +21,10 @@
                         {{ post.post_content|shortcodes }}
                     </p>
                     <p class="datum text-white text-lowercase">
-                        elke
-                        {% for day in post._eventorganiser_event_schedule.schedule_meta %}
-                            {% spaceless %}
-                            <span class="dag">
-                                {% if day == 'MO' %}Maandag{% endif %}
-                                {% if day == 'TU' %}Dinsdag{% endif %}
-                                {% if day == 'WE' %}Woensdag{% endif %}
-                                {% if day == 'TH' %}Donderdag{% endif %}
-                                {% if day == 'FR' %}Vrijdag{% endif %}
-                                {% if day == 'SA' %}Zaterdag{% endif %}
-                                {% if day == 'SU' %}Zondag{% endif %}
-                                {#{% if not loop.last %}, {% endif %}#}
-                                {% if loop.last %}: {% endif %}
-                            </span>
-                            {% endspaceless %}
-                        {% endfor %}
-                        {% if not post.all_day %}
-                            van {{ post.StartTime|date('H:i') }}
-                            {% if post.FinishTime %}
-                                tot {{ post.FinishTime|date('H:i') }}
-                            {% endif %}
+                        {% if post.custom._eventorganiser_event_schedule.schedule is same as('once') %}
+                            {% include 'templates/parts/event/once.twig' %}
+                        {% else %}
+                            {% include 'templates/parts/event/weekly.twig' %}
                         {% endif %}
                     </p>
                     <p class="website">
