@@ -119,6 +119,19 @@ body.custom-background:not(.home) .main.header_fixed {
   font-size: 29px;
 }
 
+.evenement .evenemt__title-block {
+  background: var(--pink);
+  color: var(--blue);
+  padding: 20px 10px;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 415px) {
+  .evenement .evenemt__title-block {
+    margin-left: -30px;
+  }
+}
+
 .frontpage__agenda-block {
   height: 400px;
   background-size: cover;
