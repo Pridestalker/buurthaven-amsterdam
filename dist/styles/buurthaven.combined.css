@@ -166,5 +166,25 @@ body.custom-background:not(.home) {
   height: 350px;
 }
 
+.agenda__grid-item-1 {
+  grid-area: first;
+}
+
+.agenda__grid-item-2 {
+  grid-area: second;
+}
+
+.agenda__grid-item-3 {
+  grid-area: third;
+}
+
+.agenda__grid-item-4 {
+  grid-area: fourth;
+}
+
+.agenda__grid-item-5 {
+  grid-area: fifth;
+}
+
 
 /*# sourceMappingURL=buurthaven.combined.css.map*/
