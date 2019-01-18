@@ -6,10 +6,19 @@
  * Time: 08:43
  */
 
-add_shortcode( 'organisation-fetch', function () {
+add_shortcode( 'organisation-fetch', function ( $atts ) {
+	$atts = shortcode_atts( [
+		'limit' => 4
+	], $atts);
 	$context = [];
 	
-	var_dump( get_users() );
+	var_dump( get_users(
+		[
+			'limit'     => $atts['limit'],
+			'status'    => 1,
+			'categories'=> 6,
+		]
+	) );
 	
 	return \Timber\Timber::render( 'templates/shortcodes/organiser/frontpage-organiser.twig', $context);
 });
