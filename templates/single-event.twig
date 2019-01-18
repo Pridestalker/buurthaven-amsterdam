@@ -24,31 +24,31 @@
                         elke
                         {% for day in post._eventorganiser_event_schedule.schedule_meta %}
                             <span class="dag">
-                                {% if day === 'mo' %}
+                                {% if day is 'mo' %}
                                     Maandag
                                 {% endif %}
 
-                                {% if day === 'tu' %}
+                                {% if day is= 'tu' %}
                                     Dinsdag
                                 {% endif %}
 
-                                {% if day === 'we' %}
+                                {% if day is 'we' %}
                                     Woensdag
                                 {% endif %}
 
-                                {% if day === 'th' %}
+                                {% if day is 'th' %}
                                     Donderdag
                                 {% endif %}
 
-                                {% if day === 'fr' %}
+                                {% if day is 'fr' %}
                                     Vrijdag
                                 {% endif %}
 
-                                {% if day === 'sa' %}
+                                {% if day is 'sa' %}
                                     Zaterdag
                                 {% endif %}
 
-                                {% if day === 'su' %}
+                                {% if day is 'su' %}
                                     Zondag
                                 {% endif %}
 
