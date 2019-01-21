@@ -63,11 +63,11 @@ body:not(.home) .buurthaven__logo {
   margin-bottom: 3rem;
 }
 
-body.custom-background:not(.home) {
+body:not(.home) {
   background-image: none !important;
 }
 
-body.custom-background:not(.home) .main.header_fixed {
+body:not(.home) .main.header_fixed {
   padding-top: calc( 198px + 2rem );
 }
 
