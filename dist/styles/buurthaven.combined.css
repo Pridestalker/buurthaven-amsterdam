@@ -68,7 +68,15 @@ body:not(.home) {
 }
 
 body:not(.home) .main.header_fixed {
-  padding-top: calc( 170px + 2rem );
+  padding-top: calc( 120px + 2rem );
+}
+
+body:not(.home) .logo__link {
+  margin: 0 0 0 2rem;
+}
+
+body:not(.home) .logo__link figcaption {
+  display: none;
 }
 
 .bg-yellow {
@@ -117,6 +125,15 @@ body.home .main {
 
 body.home .main.header_fixed {
   padding-top: 420px;
+}
+
+.elementor-text-editor a {
+  color: inherit;
+  text-decoration: underline !important;
+}
+
+.elementor-text-editor a:hover {
+  color: inherit;
 }
 
 .social__blocks {

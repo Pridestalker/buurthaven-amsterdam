@@ -37,7 +37,13 @@ body:not(.home)
 body:not(.home)
   background-image: none !important
   .main.header_fixed
-    padding-top: calc( 170px + 2rem )
+    padding-top: calc( 120px + 2rem )
+  .logo__link
+    margin: 0 0 0 2rem
+    figcaption
+      display: none
+
+
 .bg-yellow
   background-color: var(--yellow)
 
@@ -74,3 +80,11 @@ body.home
     padding-top: 30px
     &.header_fixed
        padding-top: 420px
+
+
+.elementor-text-editor
+  a
+    color: inherit
+    text-decoration: underline !important
+    &:hover
+      color: inherit
