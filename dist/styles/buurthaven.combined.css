@@ -104,7 +104,17 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
 }
 
 .main.header_fixed {
-  padding-top: 294px;
+  padding-top: 420px;
+}
+
+.body.custom-background {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 0 0;
+}
+
+.body.custom-background .main {
+  padding-top: 30px;
 }
 
 .social__blocks {

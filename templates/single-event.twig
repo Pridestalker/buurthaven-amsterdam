@@ -2,7 +2,9 @@
 
 {% block content %}
     <article class="bg-yellow evenement">
-        <h2 class="text-center m-0 special-big-title py-4 text-white">{{ owner.meta('organisatie_naam') }}</h2>
+        <h2 class="text-center m-0 special-big-title py-4 text-white">
+            {{ owner.display_name }}
+        </h2>
         <div class="container">
             <section class="row">
                 <div class="col-md-6">
