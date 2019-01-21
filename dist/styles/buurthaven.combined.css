@@ -109,8 +109,8 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
 
 .body.custom-background {
   background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: 0 0;
+  background-attachment: scroll !important;
+  background-position: 0 0 !important;
 }
 
 .body.custom-background .main {
