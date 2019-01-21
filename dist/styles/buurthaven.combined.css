@@ -107,13 +107,15 @@ header[data-sticky=header].fixme .logo__link .buurthaven__logo {
   padding-top: 420px;
 }
 
-.body.custom-background {
+.body.home {
+  background-image: url("https://buurthaven.amsterdam/wp-content/uploads/2019/01/Beelelement.png");
+  background-size: cover;
+  background-attachment: scroll;
   background-repeat: no-repeat;
-  background-attachment: scroll !important;
-  background-position: 0 0 !important;
+  background-position: 0 0;
 }
 
-.body.custom-background .main {
+.body.home .main {
   padding-top: 30px;
 }
 
