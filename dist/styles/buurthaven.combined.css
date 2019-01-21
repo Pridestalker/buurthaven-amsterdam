@@ -68,7 +68,7 @@ body:not(.home) {
 }
 
 body:not(.home) .main.header_fixed {
-  padding-top: calc( 198px + 2rem );
+  padding-top: calc( 170px + 2rem );
 }
 
 .bg-yellow {
