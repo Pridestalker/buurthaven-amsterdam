@@ -68,7 +68,7 @@ body.custom-background:not(.home) {
 }
 
 body.custom-background:not(.home) .main.header_fixed {
-  padding-top: 198px;
+  padding-top: calc( 198px + 2rem );
 }
 
 .bg-yellow {
