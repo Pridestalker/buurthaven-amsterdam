@@ -1,5 +1,7 @@
 {
     "require": {
         "nesbot/carbon": "^2.10"
+    },
+    "require-dev": {
     }
 }
