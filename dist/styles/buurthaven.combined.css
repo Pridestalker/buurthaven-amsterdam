@@ -183,8 +183,11 @@ body.home .main.header_fixed {
 }
 
 .menu-item {
-  font-weight: 800;
   font-style: italic;
+}
+
+.menu-item span {
+  font-weight: 800;
 }
 
 .evenement .evenement__img {
