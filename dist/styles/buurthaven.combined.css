@@ -243,6 +243,7 @@ body.home .main.header_fixed {
 .agenda__grid-container {
   display: grid;
   grid-template-areas: "first first second" "first first fifth" "third fourth fifth";
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 350px 350px 350px;
 }
 
