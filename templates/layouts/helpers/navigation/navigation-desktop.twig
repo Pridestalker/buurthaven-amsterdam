@@ -1,4 +1,8 @@
 <section class="bg-green menu-container flex-column justify-content-center">
+    <img src="{{ logo.src }}" alt="{{ site.name }}" srcset="{{ logo.src|retina(1) }} 1x,
+    {{ logo.src|retina(2) }} 2x,
+    {{ logo.src|retina(3) }} 3x,
+    {{ logo.src|retina(4) }} 4x" class="buurthaven__logo-navigation">
     <aside class="menu-close__button">
         <button class="btn btn-lg bg-transparent" data-menu-close="#menu">
             <i class="fas fa-times fa-2x"></i>

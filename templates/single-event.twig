@@ -3,7 +3,7 @@
 {% block content %}
     <article class="bg-yellow evenement">
         <h2 class="text-center m-0 special-big-title py-4 text-white">
-            {{ owner.display_name }}
+            {# {{ owner.display_name }} #}
         </h2>
         <div class="container">
             <section class="row">
@@ -22,6 +22,7 @@
                     <p class="summary">
                         {{ post.post_content|shortcodes }}
                     </p>
+                    {% if not post.ID is same as(240) or post.ID is same as(242)  }
                     <p class="datum text-white text-lowercase">
                         {% if post.custom._eventorganiser_event_schedule.schedule is same as('once') %}
                             {% include 'templates/parts/event/once.twig' %}
