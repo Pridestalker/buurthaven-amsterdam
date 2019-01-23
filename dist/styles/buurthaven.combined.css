@@ -175,7 +175,6 @@ body.home .main.header_fixed {
 
 .menu-item {
   font-style: italic;
-  text-decoration: none;
 }
 
 .menu-item span {
@@ -183,7 +182,15 @@ body.home .main.header_fixed {
 }
 
 .menu-item:hover {
-  color: var(-yellow);
+  text-decoration: none;
+  color: var(--yellow) !important;
+}
+
+.buurthaven__logo-navigation {
+  max-width: 140px;
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
 }
 
 .evenement .evenement__img {
