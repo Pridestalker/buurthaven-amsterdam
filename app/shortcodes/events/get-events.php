@@ -45,7 +45,7 @@ add_shortcode('grid_agenda', static function ($atts) {
 
 add_shortcode( 'list_agenda', static function ( $atts ) {
 	$events = eo_get_events( [
-		'numberposts'       => 5,
+		'numberposts'       => $atts['amount']?? -1,
 		// 'event_start_after' => 'today',
 		'showpastevents'    => false, // Will be deprecated, but set it to true to play it safe.
 		// False because this should load only a certain number of posts.

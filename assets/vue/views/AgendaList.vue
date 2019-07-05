@@ -26,7 +26,7 @@
                             <h3 class="post-title"><a :href="getPermalink(post.slug)">{{ post.post_title }}</a></h3>
                             <h6 class="post-subtitle">{{ post.custom.catchphrase }}</h6>
                         </main>
-                        <aside class="post_info">
+                        <aside class="post_info d-none d-md-flex">
                             <span class="extra-info">{{ post.custom.extra_info }}</span>
                         </aside>
                     </article>
@@ -104,6 +104,10 @@
         display: grid
         grid-template-columns: 1fr 2fr 2fr
         grid-column-gap: 2rem
+
+        @media screen and (max-width: 414px)
+            grid-template-columns: 1fr 1fr
+    
         .post_main
             .post-title
                 font-size: 1rem
@@ -119,4 +123,7 @@
     font-weight: bold
     font-size: 3rem
     font-style: italic
+    
+    @media screen and (max-width: 414px)
+        font-size: 2rem
 </style>

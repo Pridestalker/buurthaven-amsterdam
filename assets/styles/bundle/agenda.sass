@@ -6,6 +6,12 @@ $grid_base_row: 350px
   grid-template-columns: 1fr 1fr 1fr
   grid-template-rows: $grid_base_row $grid_base_row $grid_base_row
 
+  @media screen and (max-width: 414px)
+    grid-template-areas: "first" "second" "third" "fourth" "fifth"
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+
+
 .agenda__grid-item
   -webkit-background-size: cover
   background-size: cover
