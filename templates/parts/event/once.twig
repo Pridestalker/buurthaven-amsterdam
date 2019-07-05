@@ -9,4 +9,9 @@
     tot {{ post.EndTime|date('H:i') }} uur
 {% endif %} #}
 
-{{ post.StartDate|date('F') }}
+
+{% if post.ID is same as (240) %}
+    {{ post.StartDate|date('F') }}
+{% else %}
+    {{ post.StartDate|date('l d F') }}
+{% endif %}

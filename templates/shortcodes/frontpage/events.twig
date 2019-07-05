@@ -4,12 +4,8 @@
             <article style="background-image: url({{ post.thumbnail.src('medium_large') }});" class="frontpage__agenda-block d-flex flex-column justify-content-end p-2 mb-1">
             </article>
             <h5 class="frontpage__agenda-date m-0 text-white">
-                {% if post.ID is same as(228) %}
-                    tot eind februari 2019
-                {% elseif post.ID is same as(234) %}
-                    maart 2019
-                {% elseif post.ID is same as(231) %}
-                    mei 2019
+                {% if post.ID is same as(240) %}
+                    {{ post._eventorganiser_schedule_start_start|date('F') }}
                 {% else %}
                     {{ post._eventorganiser_schedule_start_start|date('D j F') }}
                 {% endif %}
