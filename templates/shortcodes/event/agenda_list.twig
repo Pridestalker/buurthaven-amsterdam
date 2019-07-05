@@ -1,0 +1,7 @@
+<section>
+    <agenda-list :posts='{{ posts|json_encode }}'>
+        <template v-slot:agenda>
+            {{ "[eo_fullcalendar defaultView='agendaWeek' lazyFetching='false']"|shortcodes }}
+        </template>
+    </agenda-list>
+</section>
