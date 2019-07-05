@@ -28,3 +28,9 @@ array_map(
 		'shortcodes/organisers/frontpage-organiser',
 	]
 );
+
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/DoedeJaarsmaCommunicatie/buurthaven-amsterdam/',
+	__FILE__,
+	'buurthaven-amsterdam'
+);
