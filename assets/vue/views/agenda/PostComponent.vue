@@ -3,6 +3,7 @@
         <aside class="post_time">
             <span v-if="showDate" class="post-date">{{ formattedDate(post.StartDate) }}</span>
             <span class="post-time">{{ formattedTime(post.StartTime) }}-{{ formattedTime(post.FinishTime) }}</span>
+            <small v-if="post.StartDate !== post.EndDate" class="post-end-date" :class="`post-end-date_${post.ID}`">tot {{ formattedDate(post.EndDate) }}</small>
         </aside>
         <main class="post_main">
             <h3 class="post-title"><a :href="getPermalink(post.slug)">{{ post.post_title }}</a></h3>
@@ -69,6 +70,9 @@
         
     .post_info
         justify-content: end
+        
+    .post-end-date
+        display: block
     
     &:not(:last-of-type)
         border-bottom: 1px solid rgba(255, 255, 255, 0.28)

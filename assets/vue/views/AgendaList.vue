@@ -9,7 +9,7 @@
         </header>
         <transition name="fade" mode="out-in">
             <div v-if="is_weekly" key="weekly">
-                <section v-for="(__posts, index) in getPostsOnWeek()" :keu="index" class="posts">
+                <section v-for="(__posts, index) in getPostsOnWeek()" :key="index" class="posts">
                     <h2 class="date-title">
                         week {{ index }}
                     </h2>
@@ -68,7 +68,6 @@
                     p.weekDay = getISOWeek(new Date(p.StartDate));
                     return p;
                 })
-                
                 return groupBy(this.posts, 'weekDay');
             }
         }
@@ -76,18 +75,20 @@
 </script>
 
 <style scoped lang="sass">
+$primary: #27509b
+$secondary: #a1cfc4
 .tab
     display: inline-block
     background: transparent
-    color: #27509b !important
+    color: $primary !important
     padding: 0.5rem
     cursor: pointer
     transition: all 225ms cubic-bezier(0.2, 0.4, 0.2, 1.0)
     &.active
-        background: #a1cfc4
+        background: $secondary
         
     &:hover
-        background: transparentize(#a1cfc4, 0.4)
+        background: transparentize($secondary, 0.4)
         
 .posts
     border-top: 2px solid white
@@ -97,7 +98,7 @@
         border-bottom: 2px solid white
         
 .date-title
-    color: #27509b
+    color: $primary
     font-weight: bold
     font-size: 3rem
     font-style: italic
