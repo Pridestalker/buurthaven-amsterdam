@@ -25,12 +25,12 @@ add_shortcode('frontpage-events', function ($atts) {
 });
 
 add_shortcode('grid_agenda', static function ($atts) {
-    $events = eo_get_events( [
+    $events = eo_get_events([
         'numberposts'       => 5,
         // 'event_start_after' => 'today',
         'showpastevents'    => false, // Will be deprecated, but set it to true to play it safe.
         // False because this should load only a certain number of posts.
-    ] );
+    ]);
     $context['posts'] = [];
     
     if ($events) {
@@ -43,20 +43,23 @@ add_shortcode('grid_agenda', static function ($atts) {
 });
 
 
-add_shortcode( 'list_agenda', static function ( $atts ) {
-	$events = eo_get_events( [
-		'numberposts'       => $atts['amount']?? -1,
-		// 'event_start_after' => 'today',
-		'showpastevents'    => false, // Will be deprecated, but set it to true to play it safe.
-		// False because this should load only a certain number of posts.
-	] );
-	$context['posts'] = [];
-	
-	if ($events) {
-		foreach ($events as $event) {
-			$context['posts'] [] = new \Timber\Post($event->ID);
-		}
-	}
-	
-	return \Timber\Timber::compile('templates/shortcodes/event/agenda_list.twig', $context);
+add_shortcode('list_agenda', static function ($atts) {
+    $events = eo_get_events([
+        'numberposts'       => $atts['amount'] ?? -1,
+        // 'event_start_after' => 'today',
+        'showpastevents'    => false, // Will be deprecated, but set it to true to play it safe.
+        // False because this should load only a certain number of posts.
+    ]);
+    $context['posts'] = [];
+    
+    if ($events) {
+        foreach ($events as $event) {
+            if ($event->ID === 240) {
+                continue;
+            }
+            $context['posts'] [] = new \Timber\Post($event->ID);
+        }
+    }
+    
+    return \Timber\Timber::compile('templates/shortcodes/event/agenda_list.twig', $context);
 });

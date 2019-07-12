@@ -1,77 +1,76 @@
 <!--suppress HtmlUnknownAttribute -->
 <template>
-    <section>
-        <header>
-            <nav>
-                <a class="tab toggle" :class="{ 'active': is_dated }" @click.prevent="toggleType">Op datum</a>
-                <a class="tab toggle" :class="{ 'active': is_weekly }" @click.prevent="toggleType">Wekelijks</a>
-            </nav>
-        </header>
-        <transition name="fade" mode="out-in">
-            <div v-if="is_weekly" key="weekly">
-                <section v-for="(__posts, index) in getPostsOnWeek()" :key="index" class="posts">
-                    <h2 class="date-title">
-                        week {{ index }}
-                    </h2>
-                    <post-component v-for="_post in __posts" :key="_post.id" :post="_post" show-date></post-component>
-                </section>
-            </div>
-            <div v-if="is_dated" class="dates" key="dated">
-                <section v-for="(_posts, index) in getPostsOnDate()" :key="index" class="posts">
-                    <h2 class="date-title">
-                        {{ formattedDate(index) }}
-                    </h2>
-                    <post-component v-for="post in _posts" :key="post.id" :post="post"></post-component>
-                </section>
-            </div>
-        </transition>
-    </section>
+  <section>
+    <header>
+      <nav>
+        <a class="tab toggle" :class="{ 'active': is_dated }" @click.prevent="toggleType">Op datum</a>
+        <a class="tab toggle" :class="{ 'active': is_weekly }" @click.prevent="toggleType">Wekelijks</a>
+      </nav>
+    </header>
+    <transition name="fade" mode="out-in">
+      <div v-if="is_weekly" key="weekly">
+        <section v-for="(__posts, index) in getPostsOnWeek()" :key="index" class="posts">
+          <h2 class="date-title">week {{ index }}</h2>
+          <post-component v-for="_post in __posts" :key="_post.id" :post="_post" show-date></post-component>
+        </section>
+      </div>
+      <div v-if="is_dated" class="dates" key="dated">
+        <section v-for="(_posts, index) in getPostsOnDate()" :key="index" class="posts">
+          <h2 class="date-title">{{ formattedDate(index) }}</h2>
+          <post-component v-for="post in _posts" :key="post.id" :post="post"></post-component>
+        </section>
+      </div>
+    </transition>
+    <div v-if="posts.length === 0" :key="'empty'">
+      <h2 class="date-title">Er staan nog geen activiteiten in de agenda.</h2>
+    </div>
+  </section>
 </template>
 
 <script>
-    import { format, getISOWeek } from 'date-fns';
-    import { nl } from 'date-fns/locale';
-    import { groupBy } from 'lodash';
-    import PostComponent from './agenda/PostComponent'
-    
-    export default {
-        name: "AgendaList",
-        components: { PostComponent },
-        props: {
-            posts: {
-                type: Array,
-                default: () => ([])
-            }
-        },
-        data() {
-            return {
-                is_dated: true,
-                is_weekly: false
-            }
-        },
-        methods: {
-            toggleType() {
-                this.is_weekly = !this.is_weekly;
-                this.is_dated  = !this.is_dated;
-            },
-            formattedDate(date) {
-                return format(new Date(date), 'EEEEEE d MMMM yyyy', { locale: nl });
-            },
-            formattedWeek(date) {
-                return format(new Date(date), 'W', { locale:nl })
-            },
-            getPostsOnDate() {
-                return groupBy(this.posts, 'StartDate');
-            },
-            getPostsOnWeek() {
-                this.posts.map(p => {
-                    p.weekDay = getISOWeek(new Date(p.StartDate));
-                    return p;
-                })
-                return groupBy(this.posts, 'weekDay');
-            }
-        }
+import { format, getISOWeek } from "date-fns";
+import { nl } from "date-fns/locale";
+import { groupBy } from "lodash";
+import PostComponent from "./agenda/PostComponent";
+
+export default {
+  name: "AgendaList",
+  components: { PostComponent },
+  props: {
+    posts: {
+      type: Array,
+      default: () => []
     }
+  },
+  data() {
+    return {
+      is_dated: true,
+      is_weekly: false
+    };
+  },
+  methods: {
+    toggleType() {
+      this.is_weekly = !this.is_weekly;
+      this.is_dated = !this.is_dated;
+    },
+    formattedDate(date) {
+      return format(new Date(date), "EEEEEE d MMMM yyyy", { locale: nl });
+    },
+    formattedWeek(date) {
+      return format(new Date(date), "W", { locale: nl });
+    },
+    getPostsOnDate() {
+      return groupBy(this.posts, "StartDate");
+    },
+    getPostsOnWeek() {
+      this.posts.map(p => {
+        p.weekDay = getISOWeek(new Date(p.StartDate));
+        return p;
+      });
+      return groupBy(this.posts, "weekDay");
+    }
+  }
+};
 </script>
 
 <style scoped lang="sass">
