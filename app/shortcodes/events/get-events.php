@@ -39,6 +39,7 @@ add_shortcode('grid_agenda', static function ($atts) {
         }
     }
     
+    
     return \Timber\Timber::compile('templates/shortcodes/event/agenda.twig', $context);
 });
 
@@ -54,12 +55,11 @@ add_shortcode('list_agenda', static function ($atts) {
     
     if ($events) {
         foreach ($events as $event) {
-            if ($event->ID === 240) {
-                continue;
-            }
             $context['posts'] [] = new \Timber\Post($event->ID);
         }
     }
+    
+    $context['posts'] = array_unique($context['posts']);
     
     return \Timber\Timber::compile('templates/shortcodes/event/agenda_list.twig', $context);
 });

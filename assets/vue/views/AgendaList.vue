@@ -30,7 +30,7 @@
 <script>
 import { format, getISOWeek } from "date-fns";
 import { nl } from "date-fns/locale";
-import { groupBy } from "lodash";
+import { groupBy, union } from "lodash";
 import PostComponent from "./agenda/PostComponent";
 
 export default {
@@ -107,11 +107,8 @@ $secondary: #a1cfc4
     
 .fade-enter-active, .fade-leave-active
     transition: all 300ms cubic-bezier(0.2, 0.4, 0.2, 1.0)
-
-
+  
 .fade-enter, .fade-leave-to
     opacity: 0
-    /*transform: scale(1, 0)*/
-    /*transform-origin: top*/
 
 </style>

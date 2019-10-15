@@ -2,16 +2,15 @@
     {% for post in posts %}
         <a href="{{ post.link }}" class="agenda__grid-item agenda__grid-item-{{ loop.index }} d-flex align-items-end p-2" style="background-image: url({{ post.thumbnail.src('medium_large') }});">
             <article class="">
-            {% if loop.index < 4 %}
-                <span class="date text-white d-block">
-                    {# {{ post.StartDate|date('D j F') }} #}
-                    {{ post.StartDate|date('F') }}
-                </span>
-                <span class="title text-white d-block">
-                    {{ post.title }}
-                </span>
-            {% endif %}
-
+                {% if loop.index < 4 %}
+                    <span class="date text-white d-block">
+                        {# {{ post.StartDate|date('D j F') }} #}
+                        {{ post.StartDate|date('F') }}
+                    </span>
+                    <span class="title text-white d-block">
+                        {{ post.title }}
+                    </span>
+                {% endif %}
             </article>
         </a>
     {% endfor %}
