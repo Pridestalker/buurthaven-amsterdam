@@ -1,17 +1,11 @@
-{# {% if post.StartDate is same as(post.EndDate) %}
+{% if post.StartDate is same as(post.EndDate) %}
     {{ post.StartDate|date('l d F') }} <br> {{ post.StartTime|date('H:i') }}
 {% else %}
     begin: {{ post.StartDate|date('l d F') }} {{ post.StartTime|date('H:i') }}
 {% endif %}
+<!-- Eind tijd (+datum) -->
 {% if post.StartDate is not same as(post.EndDate) %}
-    eind: {{ post.EndDate|date('l d F') }} {{ post.EndTime|date('H:i') }}
+    eind: {{ post.EndDate|date('l d F') }} {{ post.FinishTime|date('H:i') }}
 {% else %}
-    tot {{ post.EndTime|date('H:i') }} uur
-{% endif %} #}
-
-
-{% if post.ID is same as (240) %}
-    {{ post.StartDate|date('F') }}
-{% else %}
-    {{ post.StartDate|date('l d F') }}
+    tot {{ post.FinishTime|date('H:i') }} uur
 {% endif %}
