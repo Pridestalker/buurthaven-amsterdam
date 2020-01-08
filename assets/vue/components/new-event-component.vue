@@ -14,15 +14,15 @@
         </div>
         <div class="form-group">
             <label for="description">Omschrijving</label>
-            <textarea id="description" name="description" placeholder="Omschrijving" class="form-control" rows="3"></textarea>
+            <textarea id="description" name="description" placeholder="Omschrijving" class="form-control" rows="3" />
         </div>
         <div class="form-group">
             <label for="startDate" class="d-block">Begindatum (en tijd)</label>
-            <date-picker v-model="startDate" name="startDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"></date-picker>
+            <date-picker v-model="startDate" name="startDate" type="datetime" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"/>
         </div>
         <div class="form-group">
             <label for="endDate" class="d-block">Einddatum (en tijd)</label>
-            <date-picker v-model="endDate" name="endDate" type="datetime" lang="en" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"></date-picker>
+            <date-picker v-model="endDate" name="endDate" type="datetime" :minute-step="15" confirm value-type="timestamp" format="YYYY-MM-DD hh:mm:ss" :lang="lang"/>
         </div>
         <div class="form-group">
             <div class="custom-control custom-checkbox">

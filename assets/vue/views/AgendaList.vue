@@ -3,21 +3,21 @@
   <section>
     <header>
       <nav>
-        <a class="tab toggle" :class="{ 'active': is_dated }" @click.prevent="toggleType">Op datum</a>
-        <a class="tab toggle" :class="{ 'active': is_weekly }" @click.prevent="toggleType">Wekelijks</a>
+        <a :class="{ 'active': is_dated, 'tab toggle': true }" @click.prevent="toggleType">Op datum</a>
+        <a :class="{ 'active': is_weekly, 'tab toggle': true }" @click.prevent="toggleType">Wekelijks</a>
       </nav>
     </header>
     <transition name="fade" mode="out-in">
       <div v-if="is_weekly" key="weekly">
         <section v-for="(__posts, index) in getPostsOnWeek()" :key="index" class="posts">
           <h2 class="date-title">week {{ index }}</h2>
-          <post-component v-for="_post in __posts" :key="_post.id" :post="_post" show-date></post-component>
+          <post-component v-for="_post in __posts" :key="_post.id" :post="_post" show-date />
         </section>
       </div>
       <div v-if="is_dated" class="dates" key="dated">
         <section v-for="(_posts, index) in getPostsOnDate()" :key="index" class="posts">
           <h2 class="date-title">{{ formattedDate(index) }}</h2>
-          <post-component v-for="post in _posts" :key="post.id" :post="post"></post-component>
+          <post-component v-for="post in _posts" :key="post.id" :post="post" />
         </section>
       </div>
     </transition>
