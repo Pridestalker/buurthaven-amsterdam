@@ -4,7 +4,26 @@
             <article style="background-image: url({{ post.thumbnail.src('medium_large') }});" class="frontpage__agenda-block d-flex flex-column justify-content-end p-2 mb-1">
             </article>
             <h5 class="frontpage__agenda-date m-0 text-white">
-                {{ post._eventorganiser_schedule_start_start|date('D j F') }}
+                {% if fn('current_user_can', 'administrator') %}
+                    {% if post.custom._eventorganiser_event_schedule.schedule is same as('once') %}
+                        {{ post._eventorganiser_schedule_start_start|date('D j F') }}
+                    {% else %}
+                        elke
+                        {% spaceless %}
+                            {% for day in post._eventorganiser_event_schedule.schedule_meta %}
+                                <span class="dag">
+                                    {% if day == 'MO' %}maandag{% endif %}
+                                    {% if day == 'TU' %}dinsdag{% endif %}
+                                    {% if day == 'WE' %}woensdag{% endif %}
+                                    {% if day == 'TH' %}donderdag{% endif %}
+                                    {% if day == 'FR' %}vrijdag{% endif %}
+                                    {% if day == 'SA' %}zaterdag{% endif %}
+                                    {% if day == 'SU' %}zondag{% endif %}
+                                </span>
+                            {% endfor %}
+                        {% endspaceless %}
+                    {% endif %}
+                {% endif %}
             </h5>
             <h3 class="frontpage__agenda-title text-white mb-2 mb-md-0">
                 {{ post.title }}
